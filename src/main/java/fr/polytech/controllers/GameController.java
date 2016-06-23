@@ -23,7 +23,7 @@ public class GameController {
         String destinationPage;
         try {
             // HttpSession session = request.getSession();
-            request.setAttribute("mesJeux", jeuDAO.getAll());
+            request.setAttribute("mesJeux", jeuDAO.findAll());
             destinationPage = "jeux";
         } catch (Exception e) {
             request.setAttribute("MesErreurs", e.getMessage());
@@ -39,7 +39,7 @@ public class GameController {
         String destinationPage;
         try {
             // HttpSession session = request.getSession();
-            request.setAttribute("mesMissions", jeuDAO.findByNumjeu());
+            request.setAttribute("mesMissions", jeuDAO.findAll());
             destinationPage = "missions";
         } catch (Exception e) {
             request.setAttribute("MesErreurs", e.getMessage());
