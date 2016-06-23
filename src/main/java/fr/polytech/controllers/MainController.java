@@ -18,6 +18,12 @@ public class MainController {
         return "index";
     }
 
+    @RequestMapping("/index.html")
+    public String index()
+    {
+        return "index";
+    }
+
     @RequestMapping("/hello")
     @ResponseBody
     public String hello()
