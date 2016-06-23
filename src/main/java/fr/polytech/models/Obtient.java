@@ -3,12 +3,12 @@ package fr.polytech.models;
 /**
  * @author ROCHE Gaetan & PLATTEAU Jonathan
  */
-public class ObtientEntity {
+public class Obtient {
     private int numapprenant;
     private int numaction;
     private Integer valeur;
-    private ActionEntity actionByNumaction;
-    private ApprenantEntity apprenantByNumapprenant;
+    private Action actionByNumaction;
+    private Apprenant apprenantByNumapprenant;
 
     public int getNumapprenant() {
         return numapprenant;
@@ -39,11 +39,11 @@ public class ObtientEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        ObtientEntity that = (ObtientEntity) o;
+        Obtient obtient = (Obtient) o;
 
-        if (numapprenant != that.numapprenant) return false;
-        if (numaction != that.numaction) return false;
-        if (valeur != null ? !valeur.equals(that.valeur) : that.valeur != null) return false;
+        if (numapprenant != obtient.numapprenant) return false;
+        if (numaction != obtient.numaction) return false;
+        if (valeur != null ? !valeur.equals(obtient.valeur) : obtient.valeur != null) return false;
 
         return true;
     }
@@ -56,19 +56,19 @@ public class ObtientEntity {
         return result;
     }
 
-    public ActionEntity getActionByNumaction() {
+    public Action getActionByNumaction() {
         return actionByNumaction;
     }
 
-    public void setActionByNumaction(ActionEntity actionByNumaction) {
+    public void setActionByNumaction(Action actionByNumaction) {
         this.actionByNumaction = actionByNumaction;
     }
 
-    public ApprenantEntity getApprenantByNumapprenant() {
+    public Apprenant getApprenantByNumapprenant() {
         return apprenantByNumapprenant;
     }
 
-    public void setApprenantByNumapprenant(ApprenantEntity apprenantByNumapprenant) {
+    public void setApprenantByNumapprenant(Apprenant apprenantByNumapprenant) {
         this.apprenantByNumapprenant = apprenantByNumapprenant;
     }
 }

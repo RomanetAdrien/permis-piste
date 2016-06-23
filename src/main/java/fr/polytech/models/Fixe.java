@@ -3,11 +3,11 @@ package fr.polytech.models;
 /**
  * @author ROCHE Gaetan & PLATTEAU Jonathan
  */
-public class FixeEntity {
+public class Fixe {
     private int nummission;
     private int numobjectif;
-    private ObjectifEntity objectifByNumobjectif;
-    private MissionEntity missionByNummission;
+    private Objectif objectifByNumobjectif;
+    private Mission missionByNummission;
 
     public int getNummission() {
         return nummission;
@@ -30,10 +30,10 @@ public class FixeEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        FixeEntity that = (FixeEntity) o;
+        Fixe fixe = (Fixe) o;
 
-        if (nummission != that.nummission) return false;
-        if (numobjectif != that.numobjectif) return false;
+        if (nummission != fixe.nummission) return false;
+        if (numobjectif != fixe.numobjectif) return false;
 
         return true;
     }
@@ -45,19 +45,19 @@ public class FixeEntity {
         return result;
     }
 
-    public ObjectifEntity getObjectifByNumobjectif() {
+    public Objectif getObjectifByNumobjectif() {
         return objectifByNumobjectif;
     }
 
-    public void setObjectifByNumobjectif(ObjectifEntity objectifByNumobjectif) {
+    public void setObjectifByNumobjectif(Objectif objectifByNumobjectif) {
         this.objectifByNumobjectif = objectifByNumobjectif;
     }
 
-    public MissionEntity getMissionByNummission() {
+    public Mission getMissionByNummission() {
         return missionByNummission;
     }
 
-    public void setMissionByNummission(MissionEntity missionByNummission) {
+    public void setMissionByNummission(Mission missionByNummission) {
         this.missionByNummission = missionByNummission;
     }
 }

@@ -1,11 +1,9 @@
 package fr.polytech.models;
 
-import java.io.Serializable;
-
 /**
  * @author ROCHE Gaetan & PLATTEAU Jonathan
  */
-public class ComprendEntityPK implements Serializable {
+public class Comprend {
     private int numjeu;
     private int nummission;
 
@@ -30,10 +28,10 @@ public class ComprendEntityPK implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        ComprendEntityPK that = (ComprendEntityPK) o;
+        Comprend comprend = (Comprend) o;
 
-        if (numjeu != that.numjeu) return false;
-        if (nummission != that.nummission) return false;
+        if (numjeu != comprend.numjeu) return false;
+        if (nummission != comprend.nummission) return false;
 
         return true;
     }

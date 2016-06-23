@@ -5,12 +5,12 @@ import java.util.Collection;
 /**
  * @author ROCHE Gaetan & PLATTEAU Jonathan
  */
-public class MissionEntity {
+public class Mission {
     private int nummission;
     private int numjeu;
     private String libmission;
-    private JeuEntity jeuByNumjeu;
-    private Collection<FixeEntity> fixesByNummission;
+    private Collection<Fixe> fixesByNummission;
+    private Jeu jeuByNumjeu;
 
     public int getNummission() {
         return nummission;
@@ -41,11 +41,11 @@ public class MissionEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        MissionEntity that = (MissionEntity) o;
+        Mission mission = (Mission) o;
 
-        if (nummission != that.nummission) return false;
-        if (numjeu != that.numjeu) return false;
-        if (libmission != null ? !libmission.equals(that.libmission) : that.libmission != null) return false;
+        if (nummission != mission.nummission) return false;
+        if (numjeu != mission.numjeu) return false;
+        if (libmission != null ? !libmission.equals(mission.libmission) : mission.libmission != null) return false;
 
         return true;
     }
@@ -58,19 +58,19 @@ public class MissionEntity {
         return result;
     }
 
-    public JeuEntity getJeuByNumjeu() {
-        return jeuByNumjeu;
-    }
-
-    public void setJeuByNumjeu(JeuEntity jeuByNumjeu) {
-        this.jeuByNumjeu = jeuByNumjeu;
-    }
-
-    public Collection<FixeEntity> getFixesByNummission() {
+    public Collection<Fixe> getFixesByNummission() {
         return fixesByNummission;
     }
 
-    public void setFixesByNummission(Collection<FixeEntity> fixesByNummission) {
+    public void setFixesByNummission(Collection<Fixe> fixesByNummission) {
         this.fixesByNummission = fixesByNummission;
+    }
+
+    public Jeu getJeuByNumjeu() {
+        return jeuByNumjeu;
+    }
+
+    public void setJeuByNumjeu(Jeu jeuByNumjeu) {
+        this.jeuByNumjeu = jeuByNumjeu;
     }
 }

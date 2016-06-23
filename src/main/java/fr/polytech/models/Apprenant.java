@@ -5,12 +5,12 @@ import java.util.Collection;
 /**
  * @author ROCHE Gaetan & PLATTEAU Jonathan
  */
-public class ApprenantEntity {
+public class Apprenant {
     private int numapprenant;
     private String nomapprenant;
     private String prenomapprenant;
-    private Collection<ObtientEntity> obtientsByNumapprenant;
-    private Collection<InscriptionEntity> inscriptionsByNumapprenant;
+    private Collection<Inscription> inscriptionsByNumapprenant;
+    private Collection<Obtient> obtientsByNumapprenant;
 
     public int getNumapprenant() {
         return numapprenant;
@@ -41,11 +41,12 @@ public class ApprenantEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        ApprenantEntity that = (ApprenantEntity) o;
+        Apprenant apprenant = (Apprenant) o;
 
-        if (numapprenant != that.numapprenant) return false;
-        if (nomapprenant != null ? !nomapprenant.equals(that.nomapprenant) : that.nomapprenant != null) return false;
-        if (prenomapprenant != null ? !prenomapprenant.equals(that.prenomapprenant) : that.prenomapprenant != null)
+        if (numapprenant != apprenant.numapprenant) return false;
+        if (nomapprenant != null ? !nomapprenant.equals(apprenant.nomapprenant) : apprenant.nomapprenant != null)
+            return false;
+        if (prenomapprenant != null ? !prenomapprenant.equals(apprenant.prenomapprenant) : apprenant.prenomapprenant != null)
             return false;
 
         return true;
@@ -59,19 +60,19 @@ public class ApprenantEntity {
         return result;
     }
 
-    public Collection<ObtientEntity> getObtientsByNumapprenant() {
-        return obtientsByNumapprenant;
-    }
-
-    public void setObtientsByNumapprenant(Collection<ObtientEntity> obtientsByNumapprenant) {
-        this.obtientsByNumapprenant = obtientsByNumapprenant;
-    }
-
-    public Collection<InscriptionEntity> getInscriptionsByNumapprenant() {
+    public Collection<Inscription> getInscriptionsByNumapprenant() {
         return inscriptionsByNumapprenant;
     }
 
-    public void setInscriptionsByNumapprenant(Collection<InscriptionEntity> inscriptionsByNumapprenant) {
+    public void setInscriptionsByNumapprenant(Collection<Inscription> inscriptionsByNumapprenant) {
         this.inscriptionsByNumapprenant = inscriptionsByNumapprenant;
+    }
+
+    public Collection<Obtient> getObtientsByNumapprenant() {
+        return obtientsByNumapprenant;
+    }
+
+    public void setObtientsByNumapprenant(Collection<Obtient> obtientsByNumapprenant) {
+        this.obtientsByNumapprenant = obtientsByNumapprenant;
     }
 }

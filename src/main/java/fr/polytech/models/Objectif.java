@@ -5,11 +5,11 @@ import java.util.Collection;
 /**
  * @author ROCHE Gaetan & PLATTEAU Jonathan
  */
-public class ObjectifEntity {
+public class Objectif {
     private int numobjectif;
     private String libobectif;
-    private Collection<EstAssocieEntity> estAssociesByNumobjectif;
-    private Collection<FixeEntity> fixesByNumobjectif;
+    private Collection<EstAssocie> estAssociesByNumobjectif;
+    private Collection<Fixe> fixesByNumobjectif;
 
     public int getNumobjectif() {
         return numobjectif;
@@ -32,10 +32,10 @@ public class ObjectifEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        ObjectifEntity that = (ObjectifEntity) o;
+        Objectif objectif = (Objectif) o;
 
-        if (numobjectif != that.numobjectif) return false;
-        if (libobectif != null ? !libobectif.equals(that.libobectif) : that.libobectif != null) return false;
+        if (numobjectif != objectif.numobjectif) return false;
+        if (libobectif != null ? !libobectif.equals(objectif.libobectif) : objectif.libobectif != null) return false;
 
         return true;
     }
@@ -47,19 +47,19 @@ public class ObjectifEntity {
         return result;
     }
 
-    public Collection<EstAssocieEntity> getEstAssociesByNumobjectif() {
+    public Collection<EstAssocie> getEstAssociesByNumobjectif() {
         return estAssociesByNumobjectif;
     }
 
-    public void setEstAssociesByNumobjectif(Collection<EstAssocieEntity> estAssociesByNumobjectif) {
+    public void setEstAssociesByNumobjectif(Collection<EstAssocie> estAssociesByNumobjectif) {
         this.estAssociesByNumobjectif = estAssociesByNumobjectif;
     }
 
-    public Collection<FixeEntity> getFixesByNumobjectif() {
+    public Collection<Fixe> getFixesByNumobjectif() {
         return fixesByNumobjectif;
     }
 
-    public void setFixesByNumobjectif(Collection<FixeEntity> fixesByNumobjectif) {
+    public void setFixesByNumobjectif(Collection<Fixe> fixesByNumobjectif) {
         this.fixesByNumobjectif = fixesByNumobjectif;
     }
 }

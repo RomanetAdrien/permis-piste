@@ -3,11 +3,11 @@ package fr.polytech.models;
 /**
  * @author ROCHE Gaetan & PLATTEAU Jonathan
  */
-public class IndicateurEntity {
+public class Indicateur {
     private int numindic;
     private int numaction;
     private Integer poids;
-    private ActionEntity actionByNumaction;
+    private Action actionByNumaction;
 
     public int getNumindic() {
         return numindic;
@@ -38,7 +38,7 @@ public class IndicateurEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        IndicateurEntity that = (IndicateurEntity) o;
+        Indicateur that = (Indicateur) o;
 
         if (numindic != that.numindic) return false;
         if (numaction != that.numaction) return false;
@@ -55,11 +55,11 @@ public class IndicateurEntity {
         return result;
     }
 
-    public ActionEntity getActionByNumaction() {
+    public Action getActionByNumaction() {
         return actionByNumaction;
     }
 
-    public void setActionByNumaction(ActionEntity actionByNumaction) {
+    public void setActionByNumaction(Action actionByNumaction) {
         this.actionByNumaction = actionByNumaction;
     }
 }

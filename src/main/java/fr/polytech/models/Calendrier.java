@@ -5,7 +5,7 @@ import java.sql.Date;
 /**
  * @author ROCHE Gaetan & PLATTEAU Jonathan
  */
-public class CalendrierEntity {
+public class Calendrier {
     private Date datejour;
 
     public Date getDatejour() {
@@ -21,7 +21,7 @@ public class CalendrierEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        CalendrierEntity that = (CalendrierEntity) o;
+        Calendrier that = (Calendrier) o;
 
         if (datejour != null ? !datejour.equals(that.datejour) : that.datejour != null) return false;
 
