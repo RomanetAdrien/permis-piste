@@ -1,0 +1,209 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="fr.polytech.models.ActionEntity" table="action" schema="permispiste">
+        <id name="numaction" column="NUMACTION"/>
+        <property name="actNumaction" column="ACT_NUMACTION"/>
+        <property name="libaction" column="LIBACTION"/>
+        <property name="scoremin" column="SCOREMIN"/>
+        <many-to-one name="actionByActNumaction" class="fr.polytech.models.ActionEntity">
+            <column name="ACT_NUMACTION" not-null="true"/>
+        </many-to-one>
+        <set name="actionsByNumaction" inverse="true">
+            <key>
+                <column name="ACT_NUMACTION" not-null="true"/>
+            </key>
+            <one-to-many not-found="ignore" class="fr.polytech.models.ActionEntity"/>
+        </set>
+        <set name="estAssociesByNumaction" inverse="true">
+            <key>
+                <column name="NUMACTION"/>
+            </key>
+            <one-to-many not-found="ignore" class="fr.polytech.models.EstAssocieEntity"/>
+        </set>
+        <set name="indicateursByNumaction" inverse="true">
+            <key>
+                <column name="NUMACTION"/>
+            </key>
+            <one-to-many not-found="ignore" class="fr.polytech.models.IndicateurEntity"/>
+        </set>
+        <set name="obtientsByNumaction" inverse="true">
+            <key>
+                <column name="NUMACTION"/>
+            </key>
+            <one-to-many not-found="ignore" class="fr.polytech.models.ObtientEntity"/>
+        </set>
+        <set name="appartientsByNumaction" inverse="true">
+            <key>
+                <column name="NUMACTION"/>
+            </key>
+            <one-to-many not-found="ignore" class="fr.polytech.models.AppartientEntity"/>
+        </set>
+    </class>
+    <class name="fr.polytech.models.ApprenantEntity" table="apprenant" schema="permispiste">
+        <id name="numapprenant" column="NUMAPPRENANT"/>
+        <property name="nomapprenant" column="NOMAPPRENANT"/>
+        <property name="prenomapprenant" column="PRENOMAPPRENANT"/>
+        <set name="obtientsByNumapprenant" inverse="true">
+            <key>
+                <column name="NUMAPPRENANT"/>
+            </key>
+            <one-to-many not-found="ignore" class="fr.polytech.models.ObtientEntity"/>
+        </set>
+        <set name="inscriptionsByNumapprenant" inverse="true">
+            <key>
+                <column name="NUMAPPRENANT"/>
+            </key>
+            <one-to-many not-found="ignore" class="fr.polytech.models.InscriptionEntity"/>
+        </set>
+    </class>
+    <class name="fr.polytech.models.CalendrierEntity" table="calendrier" schema="permispiste">
+        <id name="datejour" column="DATEJOUR"/>
+    </class>
+    <class name="fr.polytech.models.ComprendEntity" table="comprend" schema="permispiste">
+        <composite-id mapped="true" class="fr.polytech.models.ComprendEntityPK">
+            <key-property name="numjeu" column="NUMJEU"/>
+            <key-property name="nummission" column="NUMMISSION"/>
+        </composite-id>
+    </class>
+    <class name="fr.polytech.models.EstAssocieEntity" table="est_associe" schema="permispiste">
+        <composite-id mapped="true" class="fr.polytech.models.EstAssocieEntityPK">
+            <key-property name="numaction" column="NUMACTION"/>
+            <key-property name="numobjectif" column="NUMOBJECTIF"/>
+        </composite-id>
+        <many-to-one name="actionByNumaction" class="fr.polytech.models.ActionEntity">
+            <column name="NUMACTION"/>
+        </many-to-one>
+        <many-to-one name="objectifByNumobjectif" class="fr.polytech.models.ObjectifEntity">
+            <column name="NUMOBJECTIF"/>
+        </many-to-one>
+    </class>
+    <class name="fr.polytech.models.IndicateurEntity" table="indicateur" schema="permispiste">
+        <id name="numindic" column="NUMINDIC"/>
+        <property name="numaction" column="NUMACTION"/>
+        <property name="poids" column="POIDS"/>
+        <many-to-one name="actionByNumaction" class="fr.polytech.models.ActionEntity">
+            <column name="NUMACTION"/>
+        </many-to-one>
+    </class>
+    <class name="fr.polytech.models.JeuEntity" table="jeu" schema="permispiste">
+        <id name="numjeu" column="NUMJEU"/>
+        <property name="libellejeu" column="LIBELLEJEU"/>
+        <set name="missionsByNumjeu" inverse="true">
+            <key>
+                <column name="NUMJEU"/>
+            </key>
+            <one-to-many not-found="ignore" class="fr.polytech.models.MissionEntity"/>
+        </set>
+        <set name="appartientsByNumjeu" inverse="true">
+            <key>
+                <column name="NUMJEU"/>
+            </key>
+            <one-to-many not-found="ignore" class="fr.polytech.models.AppartientEntity"/>
+        </set>
+        <set name="inscriptionsByNumjeu" inverse="true">
+            <key>
+                <column name="NUMJEU"/>
+            </key>
+            <one-to-many not-found="ignore" class="fr.polytech.models.InscriptionEntity"/>
+        </set>
+    </class>
+    <class name="fr.polytech.models.MissionEntity" table="mission" schema="permispiste">
+        <id name="nummission" column="NUMMISSION"/>
+        <property name="numjeu" column="NUMJEU"/>
+        <property name="libmission" column="LIBMISSION"/>
+        <many-to-one name="jeuByNumjeu" class="fr.polytech.models.JeuEntity">
+            <column name="NUMJEU"/>
+        </many-to-one>
+        <set name="fixesByNummission" inverse="true">
+            <key>
+                <column name="NUMMISSION"/>
+            </key>
+            <one-to-many not-found="ignore" class="fr.polytech.models.FixeEntity"/>
+        </set>
+    </class>
+    <class name="fr.polytech.models.ObjectifEntity" table="objectif" schema="permispiste">
+        <id name="numobjectif" column="NUMOBJECTIF"/>
+        <property name="libobectif" column="LIBOBECTIF"/>
+        <set name="estAssociesByNumobjectif" inverse="true">
+            <key>
+                <column name="NUMOBJECTIF"/>
+            </key>
+            <one-to-many not-found="ignore" class="fr.polytech.models.EstAssocieEntity"/>
+        </set>
+        <set name="fixesByNumobjectif" inverse="true">
+            <key>
+                <column name="NUMOBJECTIF"/>
+            </key>
+            <one-to-many not-found="ignore" class="fr.polytech.models.FixeEntity"/>
+        </set>
+    </class>
+    <class name="fr.polytech.models.ObtientEntity" table="obtient" schema="permispiste">
+        <composite-id mapped="true" class="fr.polytech.models.ObtientEntityPK">
+            <key-property name="numapprenant" column="NUMAPPRENANT"/>
+            <key-property name="numaction" column="NUMACTION"/>
+        </composite-id>
+        <property name="valeur" column="VALEUR"/>
+        <many-to-one name="actionByNumaction" class="fr.polytech.models.ActionEntity">
+            <column name="NUMACTION"/>
+        </many-to-one>
+        <many-to-one name="apprenantByNumapprenant" class="fr.polytech.models.ApprenantEntity">
+            <column name="NUMAPPRENANT"/>
+        </many-to-one>
+    </class>
+    <class name="fr.polytech.models.PossedeEntity" table="possede" schema="permispiste">
+        <composite-id mapped="true" class="fr.polytech.models.PossedeEntityPK">
+            <key-property name="numaction" column="NUMACTION"/>
+            <key-property name="numregle" column="NUMREGLE"/>
+        </composite-id>
+    </class>
+    <class name="fr.polytech.models.RegleEntity" table="regle" schema="permispiste">
+        <id name="numregle" column="NUMREGLE"/>
+        <property name="libregle" column="LIBREGLE"/>
+        <property name="scoremin" column="SCOREMIN"/>
+    </class>
+    <class name="fr.polytech.models.AppartientEntity" table="appartient" schema="permispiste">
+        <composite-id mapped="true" class="fr.polytech.models.AppartientEntityPK">
+            <key-property name="numjeu" column="NUMJEU"/>
+            <key-property name="numaction" column="NUMACTION"/>
+        </composite-id>
+        <many-to-one name="actionByNumaction" class="fr.polytech.models.ActionEntity">
+            <column name="NUMACTION"/>
+        </many-to-one>
+        <many-to-one name="jeuByNumjeu" class="fr.polytech.models.JeuEntity">
+            <column name="NUMJEU"/>
+        </many-to-one>
+    </class>
+    <class name="fr.polytech.models.FixeEntity" table="fixe" schema="permispiste">
+        <composite-id mapped="true" class="fr.polytech.models.FixeEntityPK">
+            <key-property name="nummission" column="NUMMISSION"/>
+            <key-property name="numobjectif" column="NUMOBJECTIF"/>
+        </composite-id>
+        <many-to-one name="objectifByNumobjectif" class="fr.polytech.models.ObjectifEntity">
+            <column name="NUMOBJECTIF"/>
+        </many-to-one>
+        <many-to-one name="missionByNummission" class="fr.polytech.models.MissionEntity">
+            <column name="NUMMISSION"/>
+        </many-to-one>
+    </class>
+    <class name="fr.polytech.models.InscriptionEntity" table="inscription" schema="permispiste">
+        <composite-id mapped="true" class="fr.polytech.models.InscriptionEntityPK">
+            <key-property name="numapprenant" column="NUMAPPRENANT"/>
+            <key-property name="numjeu" column="NUMJEU"/>
+        </composite-id>
+        <many-to-one name="apprenantByNumapprenant" class="fr.polytech.models.ApprenantEntity">
+            <column name="NUMAPPRENANT"/>
+        </many-to-one>
+        <many-to-one name="jeuByNumjeu" class="fr.polytech.models.JeuEntity">
+            <column name="NUMJEU"/>
+        </many-to-one>
+    </class>
+    <class name="fr.polytech.models.UsersEntity" table="users" schema="permispiste">
+        <id name="id" column="id"/>
+        <property name="email" column="email"/>
+        <property name="name" column="name"/>
+    </class>
+</hibernate-mapping>

@@ -7,6 +7,11 @@ CREATE DATABASE IF NOT EXISTS `permispiste`
   COLLATE utf8_general_ci;
 USE `permispiste`;
 
+--
+-- Utilisateur : 'userepul'/'epul'
+--
+GRANT ALL PRIVILEGES ON permispiste.* to 'userepul'@'localhost' identified by 'epul';
+
 -- --------------------------------------------------------
 
 --
@@ -85,14 +90,11 @@ CREATE TABLE IF NOT EXISTS `apprenant` (
 --
 
 INSERT INTO `apprenant` (`NUMAPPRENANT`, `NOMAPPRENANT`, `PRENOMAPPRENANT`) VALUES
-  (1, 'Caron', 'Antoine'),
-  (2, 'Chauslende', 'Adrien'),
-  (3, 'Galdeano', 'Alexandre'),
-  (4, 'Reynaud', 'Pierre'),
-  (11, 'Premilieu', 'Laura'),
-  (12, 'Fagno', 'Corinne'),
-  (13, 'Rodarie', 'Dimitri'),
-  (14, 'Ferjani', 'Gael');
+  (1, 'PLATTEAU', 'Jonathan'),
+  (2, 'ROCHE', 'Gaetan'),
+  (3, 'COUTURIER', 'Cyril'),
+  (4, 'MARTIN', 'Florian'),
+  (5, 'SEMET', 'Benoit');
 
 
 -- --------------------------------------------------------
@@ -239,9 +241,9 @@ CREATE TABLE IF NOT EXISTS `inscription` (
 
 INSERT INTO `inscription` (`NUMAPPRENANT`, `NUMJEU`) VALUES
   (3, 2),
-  (12, 1),
-  (12, 2),
-  (13, 1);
+  (4, 1),
+  (5, 2),
+  (2, 1);
 
 -- --------------------------------------------------------
 
@@ -287,14 +289,14 @@ CREATE TABLE IF NOT EXISTS `mission` (
 --
 
 INSERT INTO `mission` (`NUMMISSION`, `NUMJEU`, `LIBMISSION`) VALUES
-  (1, 1, 'Mission A'),
-  (2, 1, 'Mission B'),
-  (3, 1, 'Mission C'),
-  (4, 1, 'Mission 3'),
-  (5, 2, 'Mission A2'),
-  (6, 2, 'Mission B2'),
-  (7, 2, 'Mission C2'),
-  (8, 2, 'Mission D2');
+  (1, 1, 'Mission 1'),
+  (2, 1, 'Mission 2'),
+  (3, 1, 'Mission 3'),
+  (4, 1, 'Mission 4'),
+  (5, 2, 'Mission 5'),
+  (6, 2, 'Mission 6'),
+  (7, 2, 'Mission 7'),
+  (8, 2, 'Mission 8');
 
 -- --------------------------------------------------------
 
@@ -346,8 +348,8 @@ CREATE TABLE IF NOT EXISTS `obtient` (
 INSERT INTO `obtient` (`NUMAPPRENANT`, `NUMACTION`, `VALEUR`) VALUES
   (3, 3, 12),
   (3, 4, 8),
-  (12, 3, 12),
-  (12, 4, 18);
+  (4, 3, 12),
+  (4, 4, 18);
 
 -- --------------------------------------------------------
 
