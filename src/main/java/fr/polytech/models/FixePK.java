@@ -1,14 +1,18 @@
 package fr.polytech.models;
 
+import javax.persistence.Column;
+import javax.persistence.Id;
 import java.io.Serializable;
 
 /**
- * @author ROCHE Gaetan & PLATTEAU Jonathan
+ * Created by John.
  */
 public class FixePK implements Serializable {
     private int nummission;
     private int numobjectif;
 
+    @Column(name = "NUMMISSION", nullable = false)
+    @Id
     public int getNummission() {
         return nummission;
     }
@@ -17,6 +21,8 @@ public class FixePK implements Serializable {
         this.nummission = nummission;
     }
 
+    @Column(name = "NUMOBJECTIF", nullable = false)
+    @Id
     public int getNumobjectif() {
         return numobjectif;
     }

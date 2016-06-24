@@ -1,16 +1,20 @@
 package fr.polytech.models;
 
+import javax.persistence.*;
 import java.util.Collection;
 
 /**
- * @author ROCHE Gaetan & PLATTEAU Jonathan
+ * Created by John.
  */
+@Entity
 public class Objectif {
     private int numobjectif;
     private String libobectif;
     private Collection<EstAssocie> estAssociesByNumobjectif;
     private Collection<Fixe> fixesByNumobjectif;
 
+    @Id
+    @Column(name = "NUMOBJECTIF", nullable = false)
     public int getNumobjectif() {
         return numobjectif;
     }
@@ -19,6 +23,8 @@ public class Objectif {
         this.numobjectif = numobjectif;
     }
 
+    @Basic
+    @Column(name = "LIBOBECTIF", nullable = true, length = 25)
     public String getLibobectif() {
         return libobectif;
     }
@@ -47,6 +53,7 @@ public class Objectif {
         return result;
     }
 
+    @OneToMany(mappedBy = "objectifByNumobjectif")
     public Collection<EstAssocie> getEstAssociesByNumobjectif() {
         return estAssociesByNumobjectif;
     }
@@ -55,6 +62,7 @@ public class Objectif {
         this.estAssociesByNumobjectif = estAssociesByNumobjectif;
     }
 
+    @OneToMany(mappedBy = "objectifByNumobjectif")
     public Collection<Fixe> getFixesByNumobjectif() {
         return fixesByNumobjectif;
     }

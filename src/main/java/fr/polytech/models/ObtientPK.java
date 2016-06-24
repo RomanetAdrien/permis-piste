@@ -1,14 +1,18 @@
 package fr.polytech.models;
 
+import javax.persistence.Column;
+import javax.persistence.Id;
 import java.io.Serializable;
 
 /**
- * @author ROCHE Gaetan & PLATTEAU Jonathan
+ * Created by John.
  */
 public class ObtientPK implements Serializable {
     private int numapprenant;
     private int numaction;
 
+    @Column(name = "NUMAPPRENANT", nullable = false)
+    @Id
     public int getNumapprenant() {
         return numapprenant;
     }
@@ -17,6 +21,8 @@ public class ObtientPK implements Serializable {
         this.numapprenant = numapprenant;
     }
 
+    @Column(name = "NUMACTION", nullable = false)
+    @Id
     public int getNumaction() {
         return numaction;
     }

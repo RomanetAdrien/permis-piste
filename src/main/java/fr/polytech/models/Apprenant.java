@@ -1,17 +1,20 @@
 package fr.polytech.models;
 
+import javax.persistence.*;
 import java.util.Collection;
 
 /**
- * @author ROCHE Gaetan & PLATTEAU Jonathan
+ * Created by John.
  */
+@Entity
 public class Apprenant {
     private int numapprenant;
     private String nomapprenant;
     private String prenomapprenant;
-    private Collection<Inscription> inscriptionsByNumapprenant;
     private Collection<Obtient> obtientsByNumapprenant;
 
+    @Id
+    @Column(name = "NUMAPPRENANT", nullable = false)
     public int getNumapprenant() {
         return numapprenant;
     }
@@ -20,6 +23,8 @@ public class Apprenant {
         this.numapprenant = numapprenant;
     }
 
+    @Basic
+    @Column(name = "NOMAPPRENANT", nullable = true, length = 25)
     public String getNomapprenant() {
         return nomapprenant;
     }
@@ -28,6 +33,8 @@ public class Apprenant {
         this.nomapprenant = nomapprenant;
     }
 
+    @Basic
+    @Column(name = "PRENOMAPPRENANT", nullable = true, length = 25)
     public String getPrenomapprenant() {
         return prenomapprenant;
     }
@@ -60,14 +67,7 @@ public class Apprenant {
         return result;
     }
 
-    public Collection<Inscription> getInscriptionsByNumapprenant() {
-        return inscriptionsByNumapprenant;
-    }
-
-    public void setInscriptionsByNumapprenant(Collection<Inscription> inscriptionsByNumapprenant) {
-        this.inscriptionsByNumapprenant = inscriptionsByNumapprenant;
-    }
-
+    @OneToMany(mappedBy = "apprenantByNumapprenant")
     public Collection<Obtient> getObtientsByNumapprenant() {
         return obtientsByNumapprenant;
     }

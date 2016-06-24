@@ -13,28 +13,40 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class MainController {
 
     @RequestMapping("/")
-    public String home()
-    {
+    public String home() {
         return "index";
     }
 
     @RequestMapping("/index.html")
-    public String index()
-    {
+    public String index() {
         return "index";
     }
 
     @RequestMapping("/hello")
     @ResponseBody
-    public String hello()
-    {
+    public String hello() {
         return "Hello World !";
     }
 
     @RequestMapping("/greeting")
-    public String greeting(@RequestParam(value="name", required=false, defaultValue="World") String name, Model model) {
+    public String greeting(@RequestParam(value = "name", required = false, defaultValue = "World") String name, Model model) {
         model.addAttribute("name", name);
         return "greeting";
+    }
+
+    @RequestMapping("/apprenants")
+    public String testApprenant() {
+        return "apprenant";
+    }
+
+    @RequestMapping("/generic")
+    public String testGeneric() {
+        return "generic";
+    }
+
+    @RequestMapping("/jeux")
+    public String testJeux() {
+        return "jeux";
     }
 }
 
