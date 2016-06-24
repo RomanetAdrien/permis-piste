@@ -1,0 +1,84 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head">
+    <meta charset="UTF-8" />
+    <title>Permis Piste</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <!--[if lte IE 8]><script src="/css/ie/html5shiv.js"></script><![endif]-->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/skel.min.js"></script>
+    <script src="/js/skel-layers.min.js"></script>
+    <script src="/js/init.js"></script>
+    <noscript>
+        <link rel="stylesheet" href="/css/skel.css" />
+        <link rel="stylesheet" href="/css/style.css" />
+        <link rel="stylesheet" href="/css/style-xlarge.css" />
+    </noscript>
+    <!--[if lte IE 8]><link rel="stylesheet" href="/css/ie/v8.css" /><![endif]-->
+</head>
+<body>
+    <!-- Header -->
+    <header th:fragment="header">
+        <h1><a href="/">Permis Piste</a></h1>
+        <nav id="nav">
+            <ul>
+                <li><a href="/">Accueil</a></li>
+                <li><a href="/apprenants">Apprenants</a></li>
+                <li><a href="/jeux.html">Jeux</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Footer -->
+    <footer th:fragment="footer">
+        <div class="container">
+            <div class="row">
+                <section class="4u 6u(medium) 12u$(small)">
+                    <h3>Un projet d'école</h3>
+                    <p>Utilisation des technologies J2E suivantes :</p>
+                    <ul class="alt">
+                        <li><a href="#">Spring Boot</a></li>
+                        <li><a href="#">Spring MVC</a></li>
+                        <li><a href="#">Spring JPA</a></li>
+                        <li><a href="#">Hibernate</a></li>
+                    </ul>
+                </section>
+                <section class="4u 6u$(medium) 12u$(small)">
+                    <h3>L'équipe du projet</h3>
+                    <p>Tous issus de la filière informatique de Polytech Lyon</p>
+                    <ul class="alt">
+                        <li><a href="#">Jonathan PLATTEAU</a></li>
+                        <li><a href="#">Gaëtan ROCHE</a></li>
+                        <li><a href="#">Cyril COUTURIER</a></li>
+                        <li><a href="#">Benoit SEMET</a></li>
+                        <li><a href="#">Florian MARTIN</a></li>
+                    </ul>
+                </section>
+                <section class="4u$ 12u$(medium) 12u$(small)">
+                    <h3>Voir le code source</h3>
+                    <ul class="icons">
+                        <li><a href="https://github.com/J0hn-/Permis-Piste" class="icon rounded fa-github"><span class="label">GitHub</span></a></li>
+                    </ul>
+                    <ul class="tabular">
+                        <li>
+                            <h3>Adresse</h3>
+                            15 Boulevard André Latarjet<br/>
+                            69100 Villeurbanne
+                        </li>
+                        <li>
+                            <h3>Mail</h3>
+                            <a href="mailto:contact@jonathan.pl">contact@jonathan.pl</a>
+                        </li>
+                    </ul>
+                </section>
+            </div>
+            <ul class="copyright">
+                <li>&copy; Informatique Répartie</li>
+                <li>Polytech Lyon</li>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>

@@ -3,7 +3,7 @@ package fr.polytech.models;
 /**
  * @author ROCHE Gaetan & PLATTEAU Jonathan
  */
-public class UsersEntity {
+public class Users {
     private long id;
     private String email;
     private String name;
@@ -37,11 +37,11 @@ public class UsersEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        UsersEntity that = (UsersEntity) o;
+        Users users = (Users) o;
 
-        if (id != that.id) return false;
-        if (email != null ? !email.equals(that.email) : that.email != null) return false;
-        if (name != null ? !name.equals(that.name) : that.name != null) return false;
+        if (id != users.id) return false;
+        if (email != null ? !email.equals(users.email) : users.email != null) return false;
+        if (name != null ? !name.equals(users.name) : users.name != null) return false;
 
         return true;
     }

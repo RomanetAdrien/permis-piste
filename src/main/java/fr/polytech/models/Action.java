@@ -5,17 +5,17 @@ import java.util.Collection;
 /**
  * @author ROCHE Gaetan & PLATTEAU Jonathan
  */
-public class ActionEntity {
+public class Action {
     private int numaction;
     private Integer actNumaction;
     private String libaction;
     private Integer scoremin;
-    private ActionEntity actionByActNumaction;
-    private Collection<ActionEntity> actionsByNumaction;
-    private Collection<EstAssocieEntity> estAssociesByNumaction;
-    private Collection<IndicateurEntity> indicateursByNumaction;
-    private Collection<ObtientEntity> obtientsByNumaction;
-    private Collection<AppartientEntity> appartientsByNumaction;
+    private Action actionByActNumaction;
+    private Collection<Action> actionsByNumaction;
+    private Collection<Appartient> appartientsByNumaction;
+    private Collection<EstAssocie> estAssociesByNumaction;
+    private Collection<Indicateur> indicateursByNumaction;
+    private Collection<Obtient> obtientsByNumaction;
 
     public int getNumaction() {
         return numaction;
@@ -54,12 +54,13 @@ public class ActionEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        ActionEntity that = (ActionEntity) o;
+        Action action = (Action) o;
 
-        if (numaction != that.numaction) return false;
-        if (actNumaction != null ? !actNumaction.equals(that.actNumaction) : that.actNumaction != null) return false;
-        if (libaction != null ? !libaction.equals(that.libaction) : that.libaction != null) return false;
-        if (scoremin != null ? !scoremin.equals(that.scoremin) : that.scoremin != null) return false;
+        if (numaction != action.numaction) return false;
+        if (actNumaction != null ? !actNumaction.equals(action.actNumaction) : action.actNumaction != null)
+            return false;
+        if (libaction != null ? !libaction.equals(action.libaction) : action.libaction != null) return false;
+        if (scoremin != null ? !scoremin.equals(action.scoremin) : action.scoremin != null) return false;
 
         return true;
     }
@@ -73,51 +74,51 @@ public class ActionEntity {
         return result;
     }
 
-    public ActionEntity getActionByActNumaction() {
+    public Action getActionByActNumaction() {
         return actionByActNumaction;
     }
 
-    public void setActionByActNumaction(ActionEntity actionByActNumaction) {
+    public void setActionByActNumaction(Action actionByActNumaction) {
         this.actionByActNumaction = actionByActNumaction;
     }
 
-    public Collection<ActionEntity> getActionsByNumaction() {
+    public Collection<Action> getActionsByNumaction() {
         return actionsByNumaction;
     }
 
-    public void setActionsByNumaction(Collection<ActionEntity> actionsByNumaction) {
+    public void setActionsByNumaction(Collection<Action> actionsByNumaction) {
         this.actionsByNumaction = actionsByNumaction;
     }
 
-    public Collection<EstAssocieEntity> getEstAssociesByNumaction() {
-        return estAssociesByNumaction;
-    }
-
-    public void setEstAssociesByNumaction(Collection<EstAssocieEntity> estAssociesByNumaction) {
-        this.estAssociesByNumaction = estAssociesByNumaction;
-    }
-
-    public Collection<IndicateurEntity> getIndicateursByNumaction() {
-        return indicateursByNumaction;
-    }
-
-    public void setIndicateursByNumaction(Collection<IndicateurEntity> indicateursByNumaction) {
-        this.indicateursByNumaction = indicateursByNumaction;
-    }
-
-    public Collection<ObtientEntity> getObtientsByNumaction() {
-        return obtientsByNumaction;
-    }
-
-    public void setObtientsByNumaction(Collection<ObtientEntity> obtientsByNumaction) {
-        this.obtientsByNumaction = obtientsByNumaction;
-    }
-
-    public Collection<AppartientEntity> getAppartientsByNumaction() {
+    public Collection<Appartient> getAppartientsByNumaction() {
         return appartientsByNumaction;
     }
 
-    public void setAppartientsByNumaction(Collection<AppartientEntity> appartientsByNumaction) {
+    public void setAppartientsByNumaction(Collection<Appartient> appartientsByNumaction) {
         this.appartientsByNumaction = appartientsByNumaction;
+    }
+
+    public Collection<EstAssocie> getEstAssociesByNumaction() {
+        return estAssociesByNumaction;
+    }
+
+    public void setEstAssociesByNumaction(Collection<EstAssocie> estAssociesByNumaction) {
+        this.estAssociesByNumaction = estAssociesByNumaction;
+    }
+
+    public Collection<Indicateur> getIndicateursByNumaction() {
+        return indicateursByNumaction;
+    }
+
+    public void setIndicateursByNumaction(Collection<Indicateur> indicateursByNumaction) {
+        this.indicateursByNumaction = indicateursByNumaction;
+    }
+
+    public Collection<Obtient> getObtientsByNumaction() {
+        return obtientsByNumaction;
+    }
+
+    public void setObtientsByNumaction(Collection<Obtient> obtientsByNumaction) {
+        this.obtientsByNumaction = obtientsByNumaction;
     }
 }

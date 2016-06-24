@@ -5,12 +5,12 @@ import java.util.Collection;
 /**
  * @author ROCHE Gaetan & PLATTEAU Jonathan
  */
-public class JeuEntity {
+public class Jeu {
     private int numjeu;
     private String libellejeu;
-    private Collection<MissionEntity> missionsByNumjeu;
-    private Collection<AppartientEntity> appartientsByNumjeu;
-    private Collection<InscriptionEntity> inscriptionsByNumjeu;
+    private Collection<Appartient> appartientsByNumjeu;
+    private Collection<Inscription> inscriptionsByNumjeu;
+    private Collection<Mission> missionsByNumjeu;
 
     public int getNumjeu() {
         return numjeu;
@@ -33,10 +33,10 @@ public class JeuEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        JeuEntity jeuEntity = (JeuEntity) o;
+        Jeu jeu = (Jeu) o;
 
-        if (numjeu != jeuEntity.numjeu) return false;
-        if (libellejeu != null ? !libellejeu.equals(jeuEntity.libellejeu) : jeuEntity.libellejeu != null) return false;
+        if (numjeu != jeu.numjeu) return false;
+        if (libellejeu != null ? !libellejeu.equals(jeu.libellejeu) : jeu.libellejeu != null) return false;
 
         return true;
     }
@@ -48,27 +48,27 @@ public class JeuEntity {
         return result;
     }
 
-    public Collection<MissionEntity> getMissionsByNumjeu() {
-        return missionsByNumjeu;
-    }
-
-    public void setMissionsByNumjeu(Collection<MissionEntity> missionsByNumjeu) {
-        this.missionsByNumjeu = missionsByNumjeu;
-    }
-
-    public Collection<AppartientEntity> getAppartientsByNumjeu() {
+    public Collection<Appartient> getAppartientsByNumjeu() {
         return appartientsByNumjeu;
     }
 
-    public void setAppartientsByNumjeu(Collection<AppartientEntity> appartientsByNumjeu) {
+    public void setAppartientsByNumjeu(Collection<Appartient> appartientsByNumjeu) {
         this.appartientsByNumjeu = appartientsByNumjeu;
     }
 
-    public Collection<InscriptionEntity> getInscriptionsByNumjeu() {
+    public Collection<Inscription> getInscriptionsByNumjeu() {
         return inscriptionsByNumjeu;
     }
 
-    public void setInscriptionsByNumjeu(Collection<InscriptionEntity> inscriptionsByNumjeu) {
+    public void setInscriptionsByNumjeu(Collection<Inscription> inscriptionsByNumjeu) {
         this.inscriptionsByNumjeu = inscriptionsByNumjeu;
+    }
+
+    public Collection<Mission> getMissionsByNumjeu() {
+        return missionsByNumjeu;
+    }
+
+    public void setMissionsByNumjeu(Collection<Mission> missionsByNumjeu) {
+        this.missionsByNumjeu = missionsByNumjeu;
     }
 }

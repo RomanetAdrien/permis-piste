@@ -1,13 +1,13 @@
 package fr.polytech.models;
 
-import java.io.Serializable;
-
 /**
  * @author ROCHE Gaetan & PLATTEAU Jonathan
  */
-public class EstAssocieEntityPK implements Serializable {
+public class EstAssocie {
     private int numaction;
     private int numobjectif;
+    private Action actionByNumaction;
+    private Objectif objectifByNumobjectif;
 
     public int getNumaction() {
         return numaction;
@@ -30,7 +30,7 @@ public class EstAssocieEntityPK implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        EstAssocieEntityPK that = (EstAssocieEntityPK) o;
+        EstAssocie that = (EstAssocie) o;
 
         if (numaction != that.numaction) return false;
         if (numobjectif != that.numobjectif) return false;
@@ -43,5 +43,21 @@ public class EstAssocieEntityPK implements Serializable {
         int result = numaction;
         result = 31 * result + numobjectif;
         return result;
+    }
+
+    public Action getActionByNumaction() {
+        return actionByNumaction;
+    }
+
+    public void setActionByNumaction(Action actionByNumaction) {
+        this.actionByNumaction = actionByNumaction;
+    }
+
+    public Objectif getObjectifByNumobjectif() {
+        return objectifByNumobjectif;
+    }
+
+    public void setObjectifByNumobjectif(Objectif objectifByNumobjectif) {
+        this.objectifByNumobjectif = objectifByNumobjectif;
     }
 }

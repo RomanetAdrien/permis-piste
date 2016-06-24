@@ -3,11 +3,11 @@ package fr.polytech.models;
 /**
  * @author ROCHE Gaetan & PLATTEAU Jonathan
  */
-public class InscriptionEntity {
+public class Inscription {
     private int numapprenant;
     private int numjeu;
-    private ApprenantEntity apprenantByNumapprenant;
-    private JeuEntity jeuByNumjeu;
+    private Apprenant apprenantByNumapprenant;
+    private Jeu jeuByNumjeu;
 
     public int getNumapprenant() {
         return numapprenant;
@@ -30,7 +30,7 @@ public class InscriptionEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        InscriptionEntity that = (InscriptionEntity) o;
+        Inscription that = (Inscription) o;
 
         if (numapprenant != that.numapprenant) return false;
         if (numjeu != that.numjeu) return false;
@@ -45,19 +45,19 @@ public class InscriptionEntity {
         return result;
     }
 
-    public ApprenantEntity getApprenantByNumapprenant() {
+    public Apprenant getApprenantByNumapprenant() {
         return apprenantByNumapprenant;
     }
 
-    public void setApprenantByNumapprenant(ApprenantEntity apprenantByNumapprenant) {
+    public void setApprenantByNumapprenant(Apprenant apprenantByNumapprenant) {
         this.apprenantByNumapprenant = apprenantByNumapprenant;
     }
 
-    public JeuEntity getJeuByNumjeu() {
+    public Jeu getJeuByNumjeu() {
         return jeuByNumjeu;
     }
 
-    public void setJeuByNumjeu(JeuEntity jeuByNumjeu) {
+    public void setJeuByNumjeu(Jeu jeuByNumjeu) {
         this.jeuByNumjeu = jeuByNumjeu;
     }
 }

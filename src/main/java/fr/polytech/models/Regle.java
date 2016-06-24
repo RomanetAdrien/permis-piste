@@ -3,7 +3,7 @@ package fr.polytech.models;
 /**
  * @author ROCHE Gaetan & PLATTEAU Jonathan
  */
-public class RegleEntity {
+public class Regle {
     private int numregle;
     private String libregle;
     private Integer scoremin;
@@ -37,11 +37,11 @@ public class RegleEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        RegleEntity that = (RegleEntity) o;
+        Regle regle = (Regle) o;
 
-        if (numregle != that.numregle) return false;
-        if (libregle != null ? !libregle.equals(that.libregle) : that.libregle != null) return false;
-        if (scoremin != null ? !scoremin.equals(that.scoremin) : that.scoremin != null) return false;
+        if (numregle != regle.numregle) return false;
+        if (libregle != null ? !libregle.equals(regle.libregle) : regle.libregle != null) return false;
+        if (scoremin != null ? !scoremin.equals(regle.scoremin) : regle.scoremin != null) return false;
 
         return true;
     }

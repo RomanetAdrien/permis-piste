@@ -5,9 +5,9 @@ import java.io.Serializable;
 /**
  * @author ROCHE Gaetan & PLATTEAU Jonathan
  */
-public class InscriptionEntityPK implements Serializable {
+public class ObtientPK implements Serializable {
     private int numapprenant;
-    private int numjeu;
+    private int numaction;
 
     public int getNumapprenant() {
         return numapprenant;
@@ -17,12 +17,12 @@ public class InscriptionEntityPK implements Serializable {
         this.numapprenant = numapprenant;
     }
 
-    public int getNumjeu() {
-        return numjeu;
+    public int getNumaction() {
+        return numaction;
     }
 
-    public void setNumjeu(int numjeu) {
-        this.numjeu = numjeu;
+    public void setNumaction(int numaction) {
+        this.numaction = numaction;
     }
 
     @Override
@@ -30,10 +30,10 @@ public class InscriptionEntityPK implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        InscriptionEntityPK that = (InscriptionEntityPK) o;
+        ObtientPK obtientPK = (ObtientPK) o;
 
-        if (numapprenant != that.numapprenant) return false;
-        if (numjeu != that.numjeu) return false;
+        if (numapprenant != obtientPK.numapprenant) return false;
+        if (numaction != obtientPK.numaction) return false;
 
         return true;
     }
@@ -41,7 +41,7 @@ public class InscriptionEntityPK implements Serializable {
     @Override
     public int hashCode() {
         int result = numapprenant;
-        result = 31 * result + numjeu;
+        result = 31 * result + numaction;
         return result;
     }
 }

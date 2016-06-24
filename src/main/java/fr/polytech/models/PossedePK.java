@@ -1,9 +1,11 @@
 package fr.polytech.models;
 
+import java.io.Serializable;
+
 /**
  * @author ROCHE Gaetan & PLATTEAU Jonathan
  */
-public class PossedeEntity {
+public class PossedePK implements Serializable {
     private int numaction;
     private int numregle;
 
@@ -28,10 +30,10 @@ public class PossedeEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        PossedeEntity that = (PossedeEntity) o;
+        PossedePK possedePK = (PossedePK) o;
 
-        if (numaction != that.numaction) return false;
-        if (numregle != that.numregle) return false;
+        if (numaction != possedePK.numaction) return false;
+        if (numregle != possedePK.numregle) return false;
 
         return true;
     }

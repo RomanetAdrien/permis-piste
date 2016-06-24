@@ -1,13 +1,13 @@
 package fr.polytech.models;
 
-import java.io.Serializable;
-
 /**
  * @author ROCHE Gaetan & PLATTEAU Jonathan
  */
-public class AppartientEntityPK implements Serializable {
+public class Appartient {
     private int numjeu;
     private int numaction;
+    private Action actionByNumaction;
+    private Jeu jeuByNumjeu;
 
     public int getNumjeu() {
         return numjeu;
@@ -30,7 +30,7 @@ public class AppartientEntityPK implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        AppartientEntityPK that = (AppartientEntityPK) o;
+        Appartient that = (Appartient) o;
 
         if (numjeu != that.numjeu) return false;
         if (numaction != that.numaction) return false;
@@ -43,5 +43,21 @@ public class AppartientEntityPK implements Serializable {
         int result = numjeu;
         result = 31 * result + numaction;
         return result;
+    }
+
+    public Action getActionByNumaction() {
+        return actionByNumaction;
+    }
+
+    public void setActionByNumaction(Action actionByNumaction) {
+        this.actionByNumaction = actionByNumaction;
+    }
+
+    public Jeu getJeuByNumjeu() {
+        return jeuByNumjeu;
+    }
+
+    public void setJeuByNumjeu(Jeu jeuByNumjeu) {
+        this.jeuByNumjeu = jeuByNumjeu;
     }
 }

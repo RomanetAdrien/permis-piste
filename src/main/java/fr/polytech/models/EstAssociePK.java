@@ -5,16 +5,16 @@ import java.io.Serializable;
 /**
  * @author ROCHE Gaetan & PLATTEAU Jonathan
  */
-public class FixeEntityPK implements Serializable {
-    private int nummission;
+public class EstAssociePK implements Serializable {
+    private int numaction;
     private int numobjectif;
 
-    public int getNummission() {
-        return nummission;
+    public int getNumaction() {
+        return numaction;
     }
 
-    public void setNummission(int nummission) {
-        this.nummission = nummission;
+    public void setNumaction(int numaction) {
+        this.numaction = numaction;
     }
 
     public int getNumobjectif() {
@@ -30,9 +30,9 @@ public class FixeEntityPK implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        FixeEntityPK that = (FixeEntityPK) o;
+        EstAssociePK that = (EstAssociePK) o;
 
-        if (nummission != that.nummission) return false;
+        if (numaction != that.numaction) return false;
         if (numobjectif != that.numobjectif) return false;
 
         return true;
@@ -40,7 +40,7 @@ public class FixeEntityPK implements Serializable {
 
     @Override
     public int hashCode() {
-        int result = nummission;
+        int result = numaction;
         result = 31 * result + numobjectif;
         return result;
     }
