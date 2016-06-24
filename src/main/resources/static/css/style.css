@@ -668,7 +668,7 @@
 		}
 
 		table th {
-			color: #666;
+			color: #456;
 			font-size: 0.9em;
 			font-weight: 400;
 			padding: 0 0.75em 0.75em 0.75em;
@@ -708,6 +708,7 @@
 			table.alt tfoot {
 				border-top: 0;
 			}
+
 
 /* Button */
 
@@ -782,6 +783,7 @@
 		input[type="button"].small,
 		.button.small {
 			font-size: 0.8em;
+			background-color: red;
 		}
 
 		input[type="submit"].big,
