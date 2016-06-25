@@ -12,6 +12,11 @@ public class Apprenant {
     private Collection<Inscription> inscriptionsByNumapprenant;
     private Collection<Obtient> obtientsByNumapprenant;
 
+    public void Apprenant(String nom, String prenom){
+        nomapprenant ="nom";
+        prenomapprenant="prenom";
+    }
+
     public int getNumapprenant() {
         return numapprenant;
     }

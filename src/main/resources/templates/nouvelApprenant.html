@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:include="fragments :: head">...</head>
+<body>
+<header id="header" th:include="fragments :: header">...</header>
+
+<section id="main">
+	<div class="container">
+
+		<header class="major">
+			<h2>Nouvel Apprenant</h2>
+		</header>
+	</div>
+</section>
+
+<!-- Main -->
+<section  class="wrapper">
+	<div class="container">
+
+			Saisissez un nouvel apprenant</br>
+			<form action="nouvelApprenant.php" method="post">
+				<table>
+					<tr>
+
+						<td>Prénom: <input type="text" label="prenom"/></td>
+						<td>Nom: <input type="text" label="nom"/></td>
+
+					</tr>
+				</table>
+				<button type="submit" class="button" id="createApprenant">Enregistrer Apprenant</button>
+			</form>
+	</div>
+</section>
+
+<!-- Table -->
+
+<!-- Footer -->
+<footer id="footer">
+	<div class="container">
+		<div class="row">
+			<section class="4u 6u(medium) 12u$(small)">
+				<h3>Un projet d'école</h3>
+				<p>Utilisation des technologies J2E suivantes :</p>
+				<ul class="alt">
+					<li><a href="#">Spring Boot</a></li>
+					<li><a href="#">Spring MVC</a></li>
+					<li><a href="#">Spring JPA</a></li>
+					<li><a href="#">Hibernate</a></li>
+				</ul>
+			</section>
+			<section class="4u 6u$(medium) 12u$(small)">
+				<h3>L'équipe du projet</h3>
+				<p>Tous issus de la filière informatique de Polytech Lyon</p>
+				<ul class="alt">
+					<li><a href="#">Jonathan PLATTEAU</a></li>
+					<li><a href="#">Gaëtan ROCHE</a></li>
+					<li><a href="#">Cyril COUTURIER</a></li>
+					<li><a href="#">Benoit SEMET</a></li>
+					<li><a href="#">Florian MARTIN</a></li>
+				</ul>
+			</section>
+			<section class="4u$ 12u$(medium) 12u$(small)">
+				<h3>Voir le code source</h3>
+				<ul class="icons">
+					<li><a href="https://github.com/J0hn-/Permis-Piste" class="icon rounded fa-github"><span class="label">GitHub</span></a></li>
+				</ul>
+				<ul class="tabular">
+					<li>
+						<h3>Adresse</h3>
+						<br>15 Boulevard André Latarjet</br>
+						<br>69100 Villeurbanne</br>
+					</li>
+					<li>
+						<h3>Mail</h3>
+						<a href="mailto:contact@jonathan.pl">contact@jonathan.pl</a>
+					</li>
+				</ul>
+			</section>
+		</div>
+		<ul class="copyright">
+			<li>&copy; Informatique Répartie</li>
+			<li>Polytech Lyon</li>
+		</ul>
+	</div>
+</footer>
+</body>
+
+
+</html>
