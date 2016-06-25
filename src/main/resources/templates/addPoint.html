@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:include="fragments :: head">...</head>
+<body>
+<header id="header" th:include="fragments :: header">...</header>
+
+<section id="main">
+    <div class="container">
+
+        <header class="major">
+            <h2>Ajout Point</h2>
+        </header>
+    </div>
+</section>
+
+<!-- Main -->
+<section  class="wrapper">
+    <div class="container">
+
+        <br>Saisissez l'action et les point à attribuer</br>
+        <form action="nouvelApprenant.php" method="post">
+            <table>
+                <tr>
+
+                    <td>Action: <input type="text" label="action"/></td>
+                    <td>Point: <input type="text" label="Point"/></td>
+
+                </tr>
+            </table>
+            <button type="submit" class="button" id="addActionPoint">Enregistrer Point</button>
+        </form>
+    </div>
+</section>
+
+
+
+
+<!-- Footer -->
+<footer id="footer" th:include="fragments :: footer">...</footer>
+</body>
+
+
+</html>

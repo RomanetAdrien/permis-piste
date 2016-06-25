@@ -58,6 +58,15 @@ public class MainController {
     public String testElements() {
         return "elements";
     }
+
+    @RequestMapping("/nouvelApprenant")
+    public String testNewApprenant() {
+        return "nouvelApprenant";
+    }
+
+    @RequestMapping("/addPoint")
+    public String testNewPoint(){ return "addPoint" ;}
+
 }
 
 
