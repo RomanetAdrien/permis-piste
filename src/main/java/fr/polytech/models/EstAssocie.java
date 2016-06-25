@@ -1,14 +1,21 @@
 package fr.polytech.models;
 
+import javax.persistence.*;
+
 /**
- * @author ROCHE Gaetan & PLATTEAU Jonathan
+ * Created by John.
  */
+@Entity
+@Table(name = "est_associe", schema = "permispiste", catalog = "")
+@IdClass(EstAssociePK.class)
 public class EstAssocie {
     private int numaction;
     private int numobjectif;
     private Action actionByNumaction;
     private Objectif objectifByNumobjectif;
 
+    @Id
+    @Column(name = "NUMACTION", nullable = false)
     public int getNumaction() {
         return numaction;
     }
@@ -17,6 +24,8 @@ public class EstAssocie {
         this.numaction = numaction;
     }
 
+    @Id
+    @Column(name = "NUMOBJECTIF", nullable = false)
     public int getNumobjectif() {
         return numobjectif;
     }
@@ -45,6 +54,7 @@ public class EstAssocie {
         return result;
     }
 
+    @ManyToOne
     public Action getActionByNumaction() {
         return actionByNumaction;
     }
@@ -53,6 +63,7 @@ public class EstAssocie {
         this.actionByNumaction = actionByNumaction;
     }
 
+    @ManyToOne
     public Objectif getObjectifByNumobjectif() {
         return objectifByNumobjectif;
     }

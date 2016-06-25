@@ -1,14 +1,19 @@
 package fr.polytech.models;
 
+import javax.persistence.*;
+
 /**
- * @author ROCHE Gaetan & PLATTEAU Jonathan
+ * Created by John.
  */
+@Entity
 public class Indicateur {
     private int numindic;
     private int numaction;
     private Integer poids;
     private Action actionByNumaction;
 
+    @Id
+    @Column(name = "NUMINDIC", nullable = false)
     public int getNumindic() {
         return numindic;
     }
@@ -17,6 +22,8 @@ public class Indicateur {
         this.numindic = numindic;
     }
 
+    @Basic
+    @Column(name = "NUMACTION", nullable = false)
     public int getNumaction() {
         return numaction;
     }
@@ -25,6 +32,8 @@ public class Indicateur {
         this.numaction = numaction;
     }
 
+    @Basic
+    @Column(name = "POIDS", nullable = true)
     public Integer getPoids() {
         return poids;
     }
@@ -55,6 +64,7 @@ public class Indicateur {
         return result;
     }
 
+    @ManyToOne
     public Action getActionByNumaction() {
         return actionByNumaction;
     }

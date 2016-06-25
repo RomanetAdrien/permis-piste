@@ -1,14 +1,20 @@
 package fr.polytech.models;
 
+import javax.persistence.*;
+
 /**
- * @author ROCHE Gaetan & PLATTEAU Jonathan
+ * Created by John.
  */
+@Entity
+@IdClass(FixePK.class)
 public class Fixe {
     private int nummission;
     private int numobjectif;
     private Objectif objectifByNumobjectif;
     private Mission missionByNummission;
 
+    @Id
+    @Column(name = "NUMMISSION", nullable = false)
     public int getNummission() {
         return nummission;
     }
@@ -17,6 +23,8 @@ public class Fixe {
         this.nummission = nummission;
     }
 
+    @Id
+    @Column(name = "NUMOBJECTIF", nullable = false)
     public int getNumobjectif() {
         return numobjectif;
     }
@@ -45,6 +53,7 @@ public class Fixe {
         return result;
     }
 
+    @ManyToOne
     public Objectif getObjectifByNumobjectif() {
         return objectifByNumobjectif;
     }
@@ -53,6 +62,7 @@ public class Fixe {
         this.objectifByNumobjectif = objectifByNumobjectif;
     }
 
+    @ManyToOne
     public Mission getMissionByNummission() {
         return missionByNummission;
     }

@@ -1,10 +1,12 @@
 package fr.polytech.models;
 
+import javax.persistence.*;
 import java.util.Collection;
 
 /**
- * @author ROCHE Gaetan & PLATTEAU Jonathan
+ * Created by John.
  */
+@Entity
 public class Action {
     private int numaction;
     private Integer actNumaction;
@@ -17,6 +19,8 @@ public class Action {
     private Collection<Indicateur> indicateursByNumaction;
     private Collection<Obtient> obtientsByNumaction;
 
+    @Id
+    @Column(name = "NUMACTION", nullable = false)
     public int getNumaction() {
         return numaction;
     }
@@ -25,6 +29,8 @@ public class Action {
         this.numaction = numaction;
     }
 
+    @Basic
+    @Column(name = "ACT_NUMACTION", nullable = true)
     public Integer getActNumaction() {
         return actNumaction;
     }
@@ -33,6 +39,8 @@ public class Action {
         this.actNumaction = actNumaction;
     }
 
+    @Basic
+    @Column(name = "LIBACTION", nullable = true, length = 25)
     public String getLibaction() {
         return libaction;
     }
@@ -41,6 +49,8 @@ public class Action {
         this.libaction = libaction;
     }
 
+    @Basic
+    @Column(name = "SCOREMIN", nullable = true)
     public Integer getScoremin() {
         return scoremin;
     }
@@ -74,6 +84,7 @@ public class Action {
         return result;
     }
 
+    @ManyToOne
     public Action getActionByActNumaction() {
         return actionByActNumaction;
     }
@@ -82,6 +93,7 @@ public class Action {
         this.actionByActNumaction = actionByActNumaction;
     }
 
+    @OneToMany(mappedBy = "actionByActNumaction")
     public Collection<Action> getActionsByNumaction() {
         return actionsByNumaction;
     }
@@ -90,6 +102,7 @@ public class Action {
         this.actionsByNumaction = actionsByNumaction;
     }
 
+    @OneToMany(mappedBy = "actionByNumaction")
     public Collection<Appartient> getAppartientsByNumaction() {
         return appartientsByNumaction;
     }
@@ -98,6 +111,7 @@ public class Action {
         this.appartientsByNumaction = appartientsByNumaction;
     }
 
+    @OneToMany(mappedBy = "actionByNumaction")
     public Collection<EstAssocie> getEstAssociesByNumaction() {
         return estAssociesByNumaction;
     }
@@ -106,6 +120,7 @@ public class Action {
         this.estAssociesByNumaction = estAssociesByNumaction;
     }
 
+    @OneToMany(mappedBy = "actionByNumaction")
     public Collection<Indicateur> getIndicateursByNumaction() {
         return indicateursByNumaction;
     }
@@ -114,6 +129,7 @@ public class Action {
         this.indicateursByNumaction = indicateursByNumaction;
     }
 
+    @OneToMany(mappedBy = "actionByNumaction")
     public Collection<Obtient> getObtientsByNumaction() {
         return obtientsByNumaction;
     }

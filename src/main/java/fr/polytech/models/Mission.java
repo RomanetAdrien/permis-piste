@@ -1,10 +1,12 @@
 package fr.polytech.models;
 
+import javax.persistence.*;
 import java.util.Collection;
 
 /**
- * @author ROCHE Gaetan & PLATTEAU Jonathan
+ * Created by John.
  */
+@Entity
 public class Mission {
     private int nummission;
     private int numjeu;
@@ -12,6 +14,8 @@ public class Mission {
     private Collection<Fixe> fixesByNummission;
     private Jeu jeuByNumjeu;
 
+    @Id
+    @Column(name = "NUMMISSION", nullable = false)
     public int getNummission() {
         return nummission;
     }
@@ -20,6 +24,8 @@ public class Mission {
         this.nummission = nummission;
     }
 
+    @Basic
+    @Column(name = "NUMJEU", nullable = false)
     public int getNumjeu() {
         return numjeu;
     }
@@ -28,6 +34,8 @@ public class Mission {
         this.numjeu = numjeu;
     }
 
+    @Basic
+    @Column(name = "LIBMISSION", nullable = true, length = 25)
     public String getLibmission() {
         return libmission;
     }
@@ -58,6 +66,7 @@ public class Mission {
         return result;
     }
 
+    @OneToMany(mappedBy = "missionByNummission")
     public Collection<Fixe> getFixesByNummission() {
         return fixesByNummission;
     }
@@ -66,6 +75,7 @@ public class Mission {
         this.fixesByNummission = fixesByNummission;
     }
 
+    @ManyToOne
     public Jeu getJeuByNumjeu() {
         return jeuByNumjeu;
     }
