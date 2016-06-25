@@ -34,11 +34,6 @@ public class MainController {
         return "greeting";
     }
 
-    @RequestMapping("/apprenants")
-    public String testApprenant() {
-        return "apprenant";
-    }
-
     @RequestMapping("/generic")
     public String testGeneric() {
         return "generic";

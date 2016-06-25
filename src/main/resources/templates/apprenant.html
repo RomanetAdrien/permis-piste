@@ -17,10 +17,7 @@
 <!-- Table -->
 <section  class="wrapper">
     <div class="container">
-
         <section>
-
-
             <div class="table-wrapper">
                 <table>
                     <thead>
@@ -31,46 +28,16 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>Jean</td>
-                        <td>1</td>
-                        <td>2000</td>
-                        <td><a href="#" class="button alt small">Modifier</a>
-                        <a href="#" class="button small"><!-- To dostyle="background-color:red"-->Supprimer</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Jean</td>
-                        <td>2</td>
-                        <td>19.99</td>
-                        <td><a href="#" class="button alt small">Modifier</a>
-                            <a href="#" class="button red">Supprimer</a>
-                            <a href="/detail" class="button small">Détails</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Jean</td>
-                        <td>3</td>
-                        <td>29.99</td>
-                        <td><a href="#" class="button alt small">Modifier</a>
-                            <a href="#" class="button small"><!-- To dostyle="background-color:red"-->Supprimer</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Jean</td>
-                        <td>4</td>
-                        <td>19.99</td>
-                        <td><a href="#" class="button alt small">Modifier</a>
-                            <a href="#" class="button small"><!-- To dostyle="background-color:red"-->Supprimer</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Jean</td>
-                        <td>5</td>
-                        <td>29.99</td>
-                        <td><a href="#" class="button alt small">Modifier</a>
-                            <a href="#" class="button small"><!-- To dostyle="background-color:red"-->Supprimer</a>
-                        </td>
+                    <tr th:each="item : ${apprenants}">
+                        <tr>
+                            <td th:text="${item.nomapprenant}">Jean</td>
+                            <td th:text="${item.prenomapprenant}">2</td>
+                            <td th:text="${item.numapprenant}">19.99</td>
+                            <td><a href="#" class="button alt small">Modifier</a>
+                                <a href="#" class="button red">Supprimer</a>
+                                <a th:href="@{/detail(id=${item.numapprenant})}" class="button small">Détails</a>
+                            </td>
+                        </tr>
                     </tr>
                     </tbody>
                 </table>

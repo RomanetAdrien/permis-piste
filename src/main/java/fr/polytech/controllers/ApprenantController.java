@@ -4,6 +4,7 @@ import fr.polytech.models.Apprenant;
 import fr.polytech.models.ApprenantDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -13,6 +14,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 @RequestMapping("/apprenants")
 public class ApprenantController {
+
+    @RequestMapping("/")
+    public String index(Model model) {
+        model.addAttribute("apprenants", apprenantDao.findAll());
+        return "apprenant";
+    }
+
     /**
      * GET /create  --> Create a new user and save it in the database.
      */
@@ -27,7 +35,7 @@ public class ApprenantController {
         catch (Exception ex) {
             return "Error creating the user: " + ex.toString();
         }
-        return "User succesfully created with id = " + userId;
+        return "User successfully created with id = " + userId;
     }
 
     @Autowired
