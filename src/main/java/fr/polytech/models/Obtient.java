@@ -1,8 +1,12 @@
 package fr.polytech.models;
 
+import javax.persistence.*;
+
 /**
- * @author ROCHE Gaetan & PLATTEAU Jonathan
+ * Created by John.
  */
+@Entity
+@IdClass(ObtientPK.class)
 public class Obtient {
     private int numapprenant;
     private int numaction;
@@ -10,6 +14,8 @@ public class Obtient {
     private Action actionByNumaction;
     private Apprenant apprenantByNumapprenant;
 
+    @Id
+    @Column(name = "NUMAPPRENANT", nullable = false)
     public int getNumapprenant() {
         return numapprenant;
     }
@@ -18,6 +24,8 @@ public class Obtient {
         this.numapprenant = numapprenant;
     }
 
+    @Id
+    @Column(name = "NUMACTION", nullable = false)
     public int getNumaction() {
         return numaction;
     }
@@ -26,6 +34,8 @@ public class Obtient {
         this.numaction = numaction;
     }
 
+    @Basic
+    @Column(name = "VALEUR", nullable = true)
     public Integer getValeur() {
         return valeur;
     }
@@ -56,6 +66,7 @@ public class Obtient {
         return result;
     }
 
+    @ManyToOne
     public Action getActionByNumaction() {
         return actionByNumaction;
     }
@@ -64,6 +75,7 @@ public class Obtient {
         this.actionByNumaction = actionByNumaction;
     }
 
+    @ManyToOne
     public Apprenant getApprenantByNumapprenant() {
         return apprenantByNumapprenant;
     }

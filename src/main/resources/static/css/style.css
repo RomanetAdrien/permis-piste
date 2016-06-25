@@ -783,10 +783,18 @@
 		input[type="button"].small,
 		.button.small {
 			font-size: 0.8em;
-			background-color: red;
 		}
 
-		input[type="submit"].big,
+input[type="submit"].red,
+input[type="reset"].red,
+input[type="button"].red,
+.button.red {
+	font-size: 0.8em;
+	background-color:red;
+}
+
+
+input[type="submit"].big,
 		input[type="reset"].big,
 		input[type="button"].big,
 		.button.big {

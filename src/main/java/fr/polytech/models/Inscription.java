@@ -1,14 +1,21 @@
 package fr.polytech.models;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.IdClass;
+
 /**
- * @author ROCHE Gaetan & PLATTEAU Jonathan
+ * Created by John.
  */
+@Entity
+@IdClass(InscriptionPK.class)
 public class Inscription {
     private int numapprenant;
     private int numjeu;
-    private Apprenant apprenantByNumapprenant;
-    private Jeu jeuByNumjeu;
 
+    @Id
+    @Column(name = "NUMAPPRENANT", nullable = false)
     public int getNumapprenant() {
         return numapprenant;
     }
@@ -17,6 +24,8 @@ public class Inscription {
         this.numapprenant = numapprenant;
     }
 
+    @Id
+    @Column(name = "NUMJEU", nullable = false)
     public int getNumjeu() {
         return numjeu;
     }
@@ -43,21 +52,5 @@ public class Inscription {
         int result = numapprenant;
         result = 31 * result + numjeu;
         return result;
-    }
-
-    public Apprenant getApprenantByNumapprenant() {
-        return apprenantByNumapprenant;
-    }
-
-    public void setApprenantByNumapprenant(Apprenant apprenantByNumapprenant) {
-        this.apprenantByNumapprenant = apprenantByNumapprenant;
-    }
-
-    public Jeu getJeuByNumjeu() {
-        return jeuByNumjeu;
-    }
-
-    public void setJeuByNumjeu(Jeu jeuByNumjeu) {
-        this.jeuByNumjeu = jeuByNumjeu;
     }
 }

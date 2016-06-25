@@ -2,6 +2,7 @@ package fr.polytech.models;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.Collection;
 
 /**
  * Created by John.
@@ -23,7 +24,8 @@ public class User {
 
     // Public methods
 
-    public User() { }
+    public User() {
+    }
 
     public User(long id) {
         this.id = id;

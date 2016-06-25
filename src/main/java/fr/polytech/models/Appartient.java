@@ -1,14 +1,20 @@
 package fr.polytech.models;
 
+import javax.persistence.*;
+
 /**
- * @author ROCHE Gaetan & PLATTEAU Jonathan
+ * Created by John.
  */
+@Entity
+@IdClass(AppartientPK.class)
 public class Appartient {
     private int numjeu;
     private int numaction;
     private Action actionByNumaction;
     private Jeu jeuByNumjeu;
 
+    @Id
+    @Column(name = "NUMJEU", nullable = false)
     public int getNumjeu() {
         return numjeu;
     }
@@ -17,6 +23,8 @@ public class Appartient {
         this.numjeu = numjeu;
     }
 
+    @Id
+    @Column(name = "NUMACTION", nullable = false)
     public int getNumaction() {
         return numaction;
     }
@@ -45,6 +53,7 @@ public class Appartient {
         return result;
     }
 
+    @ManyToOne
     public Action getActionByNumaction() {
         return actionByNumaction;
     }
@@ -53,6 +62,7 @@ public class Appartient {
         this.actionByNumaction = actionByNumaction;
     }
 
+    @ManyToOne
     public Jeu getJeuByNumjeu() {
         return jeuByNumjeu;
     }
