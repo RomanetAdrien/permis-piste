@@ -13,6 +13,14 @@ public class Apprenant {
     private String prenomapprenant;
     private Collection<Obtient> obtientsByNumapprenant;
 
+    public Apprenant() {
+    }
+
+    public Apprenant(String nomapprenant, String prenomapprenant) {
+        this.nomapprenant = nomapprenant;
+        this.prenomapprenant = prenomapprenant;
+    }
+
     @Id
     @Column(name = "NUMAPPRENANT", nullable = false)
     public int getNumapprenant() {
