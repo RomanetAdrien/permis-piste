@@ -53,6 +53,11 @@ public class MainController {
     public String testDetail() {
         return "detail";
     }
+
+    @RequestMapping("/elements")
+    public String testElements() {
+        return "elements";
+    }
 }
 
 
