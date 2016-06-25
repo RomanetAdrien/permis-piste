@@ -48,6 +48,11 @@ public class MainController {
     public String testJeux() {
         return "jeux";
     }
+
+    @RequestMapping("/detail")
+    public String testDetail() {
+        return "detail";
+    }
 }
 
 
