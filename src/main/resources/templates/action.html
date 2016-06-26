@@ -8,11 +8,48 @@
     <div class="container">
 
         <header class="major">
-            <h2>Liste des apprenants</h2>
+            <h2>Liste des Actions</h2>
         </header>
     </div>
 </section>
 
+
+<section class="wrapper">
+    <div class="container">
+        <section>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Num</th>
+                        <th>Name</th>
+                        <th>Score Min</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="item : ${action}">
+                        <tr>
+                        <td th:text="${item.numaction}"></td>
+                        <td th:text="${item.libaction}"></td>
+                        <td th:text="${item.scoremin}"></td>
+                        <td>
+                            <a th:href="@{/action-supprimer(id=${item.numaction})}"> <button class="button small red">Supprimer</button></a>
+                        </td>
+                        </tr>
+
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <header class="major"><a th:href="@{/action-new}" class="button fit small">Ajouter une nouvelle action</a></header>
+    </div>
+</section>
 
 
 <!-- Footer -->

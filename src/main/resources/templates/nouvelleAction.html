@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:include="fragments :: head">...</head>
+<body>
+<header id="header" th:include="fragments :: header">...</header>
+
+<section id="main">
+    <div class="container">
+
+        <header class="major">
+            <h2>Nouvelle Action</h2>
+        </header>
+    </div>
+</section>
+
+<!-- Main -->
+<section  class="wrapper">
+    <div class="container">
+
+        <br>Saisissez une nouvelle action</br>
+
+        <form action="#" th:action="@{/action-create}" th:object="${Action}" method="post">
+            <table>
+                <tr>
+                    <td>Libelle: <input type="text" th:field="*{libaction}" /></td>
+                    <td>actNumation  <input type="text" th:field="*{actNumaction}" /></td>
+                    <td>Score Min: <input type="text" th:field="*{scoremin}" /></td>
+                </tr>
+            </table>
+            <button type="submit" class="button" id="createAction">Enregistrer Action</button>
+        </form>
+    </div>
+</section>
+
+
+
+<!-- Footer -->
+<footer id="footer" th:include="fragments :: footer">...</footer>
+</body>
+
+
+</html>
