@@ -40,20 +40,12 @@ public class MainController {
     }
 
 
-    @RequestMapping("/detail")
-    public String testDetail() {
-        return "detail";
-    }
-
     @RequestMapping("/elements")
     public String testElements() {
         return "elements";
     }
 
-    @RequestMapping("/nouvelApprenant")
-    public String testNewApprenant() {
-        return "nouvelApprenant";
-    }
+
 
     @RequestMapping("/addPoint")
     public String testNewPoint(){ return "addPoint" ;}
