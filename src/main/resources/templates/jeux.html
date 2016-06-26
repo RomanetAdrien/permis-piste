@@ -35,7 +35,7 @@
                             <td th:text="${jeu.libellejeu}"></td>
                             <td>
                                 <a th:href="@{/detailsJeu(id=${jeu.numjeu})}"> <button class="button alt small ">Détails</button></a>
-                                <a th:href="@{/modifJeu(id=${jeu.numjeu})}"> <button class="button small ">Modifier</button></a>
+                                <a th:href="@{/jeu-modification(id=${jeu.numjeu})}"> <button class="button small ">Modifier</button></a>
                                 <a th:href="@{/supprimerJeu(id=${jeu.numjeu})}"> <button class="button small red">Supprimer</button></a>
                             </td>
                         </tr>

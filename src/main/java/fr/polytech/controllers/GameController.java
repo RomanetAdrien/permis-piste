@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+
 import javax.servlet.http.HttpServletRequest;
 
 /**
@@ -41,6 +42,8 @@ public class GameController {
         return "nouveauJeu";
     }
 
+
+
     @RequestMapping(value="/jeu-create", method = RequestMethod.POST)
     public String create(@ModelAttribute Jeu jeu, Model model){
         try{
@@ -52,6 +55,35 @@ public class GameController {
 
         return "redirect:/jeux";
     }
+
+    @RequestMapping(value="/jeu-modif", method = RequestMethod.POST)
+    public String modifi(@ModelAttribute Jeu jeu, Model model){
+        try{
+            Jeu jeuToModif = jeuDao.findBynumjeu(jeu.getNumjeu());
+            jeuToModif.setLibellejeu(jeu.getLibellejeu());
+            jeuDao.save(jeuToModif);
+        }
+        catch (Exception ex) {
+            return "Error creating the user :" + ex.toString();
+        }
+
+        return "redirect:/jeux";
+    }
+    @RequestMapping("/jeu-modification")
+    public ModelAndView modifJeu(HttpServletRequest request, @RequestParam("id") int id,Model model) throws Exception  {
+        String destinationPage;
+        try {
+            model.addAttribute("Jeu", new Jeu());
+            request.setAttribute("jeux", jeuDao.findBynumjeu(id));
+            destinationPage = "modicationJeu";
+        } catch (Exception e) {
+            System.out.println(e);
+            request.setAttribute("MesErreurs", e.getMessage());
+            destinationPage = "Erreur";
+        }
+        return new ModelAndView(destinationPage);
+    }
+
 
 
 
@@ -77,13 +109,7 @@ public class GameController {
         String destinationPage;
         try {
             int idInt= Integer.parseInt(id);
-            System.out.println(idInt);
             request.setAttribute("jeux", jeuDao.findBynumjeu(idInt));
-            System.out.println("test");
-            request.setAttribute("missions",missionDao.findBynumjeu(idInt));
-            System.out.println("test1");
-            request.setAttribute("actions",appartientDao.findBynumjeu(idInt));
-            System.out.println("test2");
             destinationPage = "detailsJeu";
         } catch (Exception e) {
             System.out.println(e);
