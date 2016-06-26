@@ -8,7 +8,7 @@ import java.util.Collection;
  */
 @Entity
 public class Apprenant {
-    private long numapprenant;
+    private int numapprenant;
     private String nomapprenant;
     private String prenomapprenant;
     private Collection<Obtient> obtientsByNumapprenant;
@@ -23,11 +23,11 @@ public class Apprenant {
 
     @Id
     @Column(name = "NUMAPPRENANT", nullable = false)
-    public long getNumapprenant() {
+    public int getNumapprenant() {
         return numapprenant;
     }
 
-    public void setNumapprenant(long numapprenant) {
+    public void setNumapprenant(int numapprenant) {
         this.numapprenant = numapprenant;
     }
 
@@ -69,7 +69,7 @@ public class Apprenant {
 
     @Override
     public int hashCode() {
-        long result = numapprenant;
+        int result = numapprenant;
         result = 31 * result + (nomapprenant != null ? nomapprenant.hashCode() : 0);
         result = 31 * result + (prenomapprenant != null ? prenomapprenant.hashCode() : 0);
         return (int) result;

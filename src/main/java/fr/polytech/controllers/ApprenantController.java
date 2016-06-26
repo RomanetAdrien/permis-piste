@@ -42,9 +42,14 @@ public class ApprenantController {
     }
 
     @RequestMapping("/apprenants-detail")
-    public String detail(@RequestParam(value = "id") long id, Model model) {
-        model.addAttribute("scores", apprenantDao.findOne(id).getObtientsByNumapprenant());
-        return "detail";
+    public String detail(@RequestParam(value = "id") String id, Model model) {
+        int idInt= Integer.parseInt(id);
+        Apprenant apprenant = apprenantDao.findBynumapprenant(idInt);
+        System.out.println(apprenant);
+        model.addAttribute("apprenants",apprenant);
+        model.addAttribute("scores", apprenant.getObtientsByNumapprenant());
+        System.out.println(apprenant.getObtientsByNumapprenant());
+        return "detailsApprenant";
     }
 
     /**

@@ -76,12 +76,17 @@ public class GameController {
     public ModelAndView detailsJeu(HttpServletRequest request, @RequestParam("id") String id) throws Exception  {
         String destinationPage;
         try {
-            Integer idInt= Integer.parseInt(id);
-            request.setAttribute("jeux", jeuDao.findBynumjeu(1));
-            request.setAttribute("missions",missionDao.findBynumjeu(1));
-            request.setAttribute("actions",appartientDao.findBynumjeu(1));
+            int idInt= Integer.parseInt(id);
+            System.out.println(idInt);
+            request.setAttribute("jeux", jeuDao.findBynumjeu(idInt));
+            System.out.println("test");
+            request.setAttribute("missions",missionDao.findBynumjeu(idInt));
+            System.out.println("test1");
+            request.setAttribute("actions",appartientDao.findBynumjeu(idInt));
+            System.out.println("test2");
             destinationPage = "detailsJeu";
         } catch (Exception e) {
+            System.out.println(e);
             request.setAttribute("MesErreurs", e.getMessage());
             destinationPage = "Erreur";
         }

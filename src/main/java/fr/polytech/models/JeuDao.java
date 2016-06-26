@@ -17,5 +17,5 @@ public interface JeuDao extends CrudRepository<Jeu, Long> {
      */
     Iterable<Jeu> findAll();
 
-    Jeu findBynumjeu(Integer numjeu);
+    Jeu findBynumjeu(int numjeu);
 }
