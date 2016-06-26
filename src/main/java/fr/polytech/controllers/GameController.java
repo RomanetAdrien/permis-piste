@@ -59,9 +59,10 @@ public class GameController {
     @RequestMapping(value="/jeu-modif", method = RequestMethod.POST)
     public String modifi(@ModelAttribute Jeu jeu, Model model){
         try{
-            Jeu jeuToModif = jeuDao.findBynumjeu(jeu.getNumjeu());
-            jeuToModif.setLibellejeu(jeu.getLibellejeu());
-            jeuDao.save(jeuToModif);
+
+
+            jeuDao.save(jeu);
+
         }
         catch (Exception ex) {
             return "Error creating the user :" + ex.toString();
@@ -73,8 +74,7 @@ public class GameController {
     public ModelAndView modifJeu(HttpServletRequest request, @RequestParam("id") int id,Model model) throws Exception  {
         String destinationPage;
         try {
-            model.addAttribute("Jeu", new Jeu());
-            request.setAttribute("jeux", jeuDao.findBynumjeu(id));
+            model.addAttribute("Jeu", jeuDao.findBynumjeu(id));
             destinationPage = "modicationJeu";
         } catch (Exception e) {
             System.out.println(e);
