@@ -18,17 +18,16 @@
 	<div class="container">
 
 			<br>Saisissez un nouvel apprenant</br>
-			<form action="/apprenants-create" method="post">
-				<table>
-					<tr>
 
-						<td>Prénom: <input type="text" label="prenom"/></td>
-						<td>Nom: <input type="text" label="nom"/></td>
-
-					</tr>
-				</table>
-				<button type="submit" class="button" id="createApprenant">Enregistrer Apprenant</button>
-			</form>
+		<form action="#" th:action="@{/apprenants-create}" th:object="${Apprenant}" method="post">
+			<table>
+				<tr>
+					<td>Nom: <input type="text" th:field="*{nomapprenant}" /></td>
+					<td>Prénom: <input type="text" th:field="*{prenomapprenant}" /></td>
+				</tr>
+			</table>
+			<button type="submit" class="button" id="createApprenant">Enregistrer Apprenant</button>
+		</form>
 	</div>
 </section>
 

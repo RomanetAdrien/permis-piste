@@ -5,9 +5,10 @@ import fr.polytech.models.ApprenantDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * Created by Gaëtan
@@ -22,18 +23,16 @@ public class ApprenantController {
     }
 
     @RequestMapping("/apprenants-new")
-    public String newApprenant() {
+    public String newApprenant(Model model) {
+        model.addAttribute("Apprenant", new Apprenant());
         return "nouvelApprenant";
     }
 
-    /**
-     * GET /create  --> Create a new user and save it in the database.
-     */
-    @RequestMapping("/apprenants-create")
-    public String create(String nom, String prenom) {
-        String userId = "";
+
+
+    @RequestMapping(value="/apprenants-create", method= RequestMethod.POST)
+    public String create(@ModelAttribute Apprenant apprenant, Model model) {
         try {
-            Apprenant apprenant = new Apprenant(nom, prenom);
             apprenantDao.save(apprenant);
         }
         catch (Exception ex) {
