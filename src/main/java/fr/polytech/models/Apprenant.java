@@ -8,7 +8,7 @@ import java.util.Collection;
  */
 @Entity
 public class Apprenant {
-    private int numapprenant;
+    private long numapprenant;
     private String nomapprenant;
     private String prenomapprenant;
     private Collection<Obtient> obtientsByNumapprenant;
@@ -23,11 +23,11 @@ public class Apprenant {
 
     @Id
     @Column(name = "NUMAPPRENANT", nullable = false)
-    public int getNumapprenant() {
+    public long getNumapprenant() {
         return numapprenant;
     }
 
-    public void setNumapprenant(int numapprenant) {
+    public void setNumapprenant(long numapprenant) {
         this.numapprenant = numapprenant;
     }
 
@@ -69,10 +69,10 @@ public class Apprenant {
 
     @Override
     public int hashCode() {
-        int result = numapprenant;
+        long result = numapprenant;
         result = 31 * result + (nomapprenant != null ? nomapprenant.hashCode() : 0);
         result = 31 * result + (prenomapprenant != null ? prenomapprenant.hashCode() : 0);
-        return result;
+        return (int) result;
     }
 
     @OneToMany(mappedBy = "apprenantByNumapprenant")

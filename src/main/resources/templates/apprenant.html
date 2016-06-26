@@ -33,9 +33,9 @@
                             <td th:text="${item.nomapprenant}">Jean</td>
                             <td th:text="${item.prenomapprenant}">2</td>
                             <td th:text="${item.numapprenant}">19.99</td>
-                            <td><a href="#" class="button alt small">Modifier</a>
-                                <a href="#" class="button red">Supprimer</a>
-                                <a th:href="@{/detail(id=${item.numapprenant})}" class="button small">Détails</a>
+                            <td><a th:href="@{/apprenants-modifier(id=${item.numapprenant})}" class="button alt small">Modifier</a>
+                                <a th:href="@{/apprenants-supprimer(id=${item.numapprenant})}" class="button red">Supprimer</a>
+                                <a th:href="@{/apprenants-detail(id=${item.numapprenant})}" class="button small">Détails</a>
                             </td>
                         </tr>
                     </tr>
@@ -51,7 +51,7 @@
 <!-- Adding -->
 <section>
     <div class="container">
-        <header class="major"><a href="/nouvelApprenant" class="button fit small">Ajouter un nouvel apprenant</a></header>
+        <header class="major"><a th:href="@{/apprenants-new}" class="button fit small">Ajouter un nouvel apprenant</a></header>
 
 
     </div>
