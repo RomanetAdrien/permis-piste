@@ -2,15 +2,14 @@ package fr.polytech.controllers;
 
 
 import fr.polytech.models.AppartientDao;
+import fr.polytech.models.Jeu;
 import fr.polytech.models.JeuDao;
 import fr.polytech.models.MissionDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-
 import javax.servlet.http.HttpServletRequest;
 
 /**
@@ -35,6 +34,26 @@ public class GameController {
         }
         return new ModelAndView(destinationPage);
     }
+
+    @RequestMapping("/jeu-new")
+    public String newJeu(Model model) {
+        model.addAttribute("Jeu", new Jeu());
+        return "nouveauJeu";
+    }
+
+    @RequestMapping(value="/jeu-create", method = RequestMethod.POST)
+    public String create(@ModelAttribute Jeu jeu, Model model){
+        try{
+            jeuDao.save(jeu);
+        }
+        catch (Exception ex) {
+            return "Error creating the user :" + ex.toString();
+        }
+
+        return "redirect:/jeux";
+    }
+
+
 
     @RequestMapping("/choix")
     @ResponseBody
@@ -68,6 +87,23 @@ public class GameController {
         }
         return new ModelAndView(destinationPage);
     }
+
+    @RequestMapping("/supprimerJeu")
+    public String delete(@RequestParam(value ="id")int id) {
+        try {
+            jeuDao.delete(jeuDao.findBynumjeu(id));
+        }
+        catch (Exception ex) {
+            return "Error deleting the game :" + ex.toString();
+
+        }
+        return "redirect:/jeux";
+    }
+
+
+
+
+
 
     // Private fields
 
