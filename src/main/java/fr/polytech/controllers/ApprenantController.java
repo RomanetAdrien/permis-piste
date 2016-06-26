@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * Created by Gaëtan
@@ -56,14 +59,47 @@ public class ApprenantController {
      * GET /delete  --> Delete the user having the passed id.
      */
     @RequestMapping("/apprenants-supprimer")
-    public String delete(@RequestParam(value = "id") long id) {
+    public String delete(@RequestParam(value = "id") int id) {
         try {
-            apprenantDao.delete(apprenantDao.findOne(id));
+            apprenantDao.delete(apprenantDao.findBynumapprenant(id));
         }
         catch (Exception ex) {
             return "Error deleting the apprenant:" + ex.toString();
         }
         return "redirect:/apprenants";
+    }
+
+    @RequestMapping(value="/apprenant-modif", method = RequestMethod.POST)
+    public String modifi(@ModelAttribute Apprenant apprenant, Model model){
+        try{
+            System.out.println(apprenant.getNumapprenant());
+            System.out.println(apprenant.getNomapprenant());
+            System.out.println(apprenant.getPrenomapprenant());
+            Apprenant apprenantToModif = apprenantDao.findBynumapprenant(apprenant.getNumapprenant());
+            apprenantToModif.setNomapprenant(apprenant.getNomapprenant());
+            apprenantToModif.setPrenomapprenant(apprenant.getPrenomapprenant());
+            apprenantDao.save(apprenantToModif);
+        }
+        catch (Exception ex) {
+            return "Error creating the user :" + ex.toString();
+        }
+
+        return "redirect:/apprenants";
+    }
+    @RequestMapping("/apprenants-modifier")
+    public ModelAndView modifApprenant(HttpServletRequest request, @RequestParam("id") int id, Model model) throws Exception  {
+        String destinationPage;
+        try {
+            Apprenant appre = new Apprenant();
+            model.addAttribute("Apprenant", appre);
+            request.setAttribute("apprenants", apprenantDao.findBynumapprenant(id));
+            destinationPage = "modificationApprenant";
+        } catch (Exception e) {
+            System.out.println(e);
+            request.setAttribute("MesErreurs", e.getMessage());
+            destinationPage = "Erreur";
+        }
+        return new ModelAndView(destinationPage);
     }
 
     @Autowired

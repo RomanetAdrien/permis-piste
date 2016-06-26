@@ -42,9 +42,9 @@ public class ActionController {
     }
 
     @RequestMapping("/action-supprimer")
-    public String delete(@RequestParam(value ="id")int id){
+    public String deleteAction(@RequestParam(value ="id")int id){
         try {
-            actionDao.delete(actionDao.findBynumact(id));
+            actionDao.delete(actionDao.findBynumaction(id));
         }
         catch (Exception ex) {
             return "Error deleting Action :" + ex.toString();

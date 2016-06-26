@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:include="fragments :: head">...</head>
+<body>
+<header id="header" th:include="fragments :: header">...</header>
+
+<section id="main">
+    <div class="container">
+
+        <header class="major">
+            <h2>Modification Apprenant</h2>
+        </header>
+    </div>
+</section>
+
+<!-- Main -->
+<section  class="wrapper">
+    <div class="container">
+
+        <br>Modifier le jeu</br>
+
+        <form action="#" th:action="@{/apprenant-modif}" th:object="${Apprenant}" method="post">
+            <table>
+                <tr>
+                    <td>Nom: <input type="text" th:name="*{nomapprenant}" th:value="${apprenants.nomapprenant}"/></td>
+                    <td>Prénom: <input type="text" th:name="*{prenomapprenant}" th:value="${apprenants.prenomapprenant}"/></td>
+                    <input display="none" th:name="*{numapprenant}" th:value="${apprenants.numapprenant}"/>
+                </tr>
+            </table>
+            <button type="submit" class="button" id="modifApprenant">Enregistrer Apprenant</button>
+        </form>
+    </div>
+</section>
+
+
+
+<!-- Footer -->
+<footer id="footer" th:include="fragments :: footer">...</footer>
+</body>
+
+
+</html>
