@@ -16,4 +16,6 @@ public interface ApprenantDao extends CrudRepository<Apprenant, Long> {
      * automagically generated from its signature by Spring Data JPA.
      */
     Iterable<Apprenant> findAll();
+
+    Apprenant findBynumapprenant(int numapprenant);
 }
