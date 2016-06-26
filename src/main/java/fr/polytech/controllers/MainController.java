@@ -39,10 +39,6 @@ public class MainController {
         return "generic";
     }
 
-    @RequestMapping("/jeux")
-    public String testJeux() {
-        return "jeux";
-    }
 
     @RequestMapping("/detail")
     public String testDetail() {

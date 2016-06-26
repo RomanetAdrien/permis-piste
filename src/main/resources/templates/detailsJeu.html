@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:display="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:include="fragments :: head">...</head>
 <body>
 <header id="header" th:include="fragments :: header">...</header>
@@ -8,7 +8,7 @@
     <div class="container">
 
         <header class="major">
-            <h2>Liste des jeux</h2>
+            <h2>Modifier le jeu</h2>
         </header>
     </div>
 </section>
@@ -20,25 +20,32 @@
 
         <section>
 
+
             <div class="table-wrapper">
                 <table>
                     <thead>
                     <tr>
                         <th>Numéro du jeu</th>
                         <th>Libellé du jeu</th>
+                        <th>Missions</th>
+                        <th>Actions</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr th:each="jeu : ${mesJeux}">
-                        <tr>
-                            <td th:text="${jeu.numjeu}"></td>
-                            <td th:text="${jeu.libellejeu}"></td>
-                            <td>
-                                <a th:href="@{/detailsJeu(id=${jeu.numjeu})}"> <button class="button alt small ">Détails</button></a>
-                                <a th:href="@{/modifJeu(id=${jeu.numjeu})}"> <button class="button small ">Modifier</button></a>
-                                <a th:href="@{/supprimerJeu(id=${jeu.numjeu})}"> <button class="button small red">Supprimer</button></a>
-                            </td>
+                    <tr th:each="jeu : ${jeux}">
+                        <td th:text="${jeu.numjeu}"></td>
+                        <td th:text="${jeu.libellejeu}"></td>
+                        <td>
+                        <tr th:each="mission :${missions}">
+                            <td th:text="${mission.nummission}"></td>
+                            <td th:text="${mission.libmission}"></td>
                         </tr>
+                        </td>
+                        <td>
+                        <tr th:each="action :${actions}">
+                            <td th:text="${action.numAction}"></td>
+                        </tr>
+                        </td>
                     </tr>
                     </tbody>
                 </table>
@@ -52,7 +59,7 @@
 <!-- Adding -->
 <section>
     <div class="container">
-        <header class="major"><a href="/nouveauJeu" class="button fit small">Ajouter un nouveau jeu</a></header>
+        <header class="major"><a href="/modifierJeu" class="button fit small">Modifier le jeu</a></header>
 
 
     </div>

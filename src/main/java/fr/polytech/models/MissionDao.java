@@ -1,22 +1,16 @@
 package fr.polytech.models;
 
-import org.springframework.data.repository.CrudRepository;
-
 import javax.transaction.Transactional;
-import java.util.ArrayList;
 
 /**
- * Created by John.
+ * Created by Cyril on 26/06/2016.
  */
 @Transactional
-public interface UserDao extends CrudRepository<User, Long> {
-
+public interface MissionDao {
     /**
      * This method will find an User instance in the database by its email.
      * Note that this method is not implemented and its working code will be
      * automagically generated from its signature by Spring Data JPA.
      */
-    User findByEmail(String email);
-
-    ArrayList<User> findAll();
+    Mission findBynumjeu(Integer numjeu);
 }

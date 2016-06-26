@@ -13,25 +13,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
  */
 @Controller
 public class UserController {
-
-    /**
-     * GET /create  --> Create a new user and save it in the database.
-     */
-    @RequestMapping("/create")
-    @ResponseBody
-    public String create(String email, String name) {
-        String userId = "";
-        try {
-            User user = new User(email, name);
-            userDao.save(user);
-            userId = String.valueOf(user.getId());
-        }
-        catch (Exception ex) {
-            return "Error creating the user: " + ex.toString();
-        }
-        return "User succesfully created with id = " + userId;
-    }
-
     /**
      * GET /delete  --> Delete the user having the passed id.
      */
@@ -84,6 +65,7 @@ public class UserController {
         }
         return "User succesfully updated!";
     }
+
 
     // Private fields
 

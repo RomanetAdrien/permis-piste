@@ -16,4 +16,6 @@ public interface JeuDao extends CrudRepository<Jeu, Long> {
      * automagically generated from its signature by Spring Data JPA.
      */
     Iterable<Jeu> findAll();
+
+    Jeu findBynumjeu(Integer numjeu);
 }

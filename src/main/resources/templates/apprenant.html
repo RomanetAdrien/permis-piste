@@ -30,9 +30,9 @@
                     <tbody>
                     <tr th:each="item : ${apprenants}">
                         <tr>
-                            <td th:text="${item.nomapprenant}">Jean</td>
-                            <td th:text="${item.prenomapprenant}">2</td>
-                            <td th:text="${item.numapprenant}">19.99</td>
+                            <td th:text="${item.nomapprenant}"></td>
+                            <td th:text="${item.prenomapprenant}"></td>
+                            <td th:text="${item.numapprenant}"></td>
                             <td><a href="#" class="button alt small">Modifier</a>
                                 <a href="#" class="button red">Supprimer</a>
                                 <a th:href="@{/detail(id=${item.numapprenant})}" class="button small">Détails</a>
