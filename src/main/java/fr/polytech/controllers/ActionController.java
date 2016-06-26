@@ -17,6 +17,7 @@ public class ActionController {
     @RequestMapping("/action")
     public String index(Model model) {
         model.addAttribute("action", actionDao.findAll());
+        return "action";
     }
 
     @Autowired
