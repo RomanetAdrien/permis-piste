@@ -66,7 +66,7 @@ public class Mission {
         return result;
     }
 
-    @OneToMany(mappedBy = "missionByNummission")
+    @OneToMany(mappedBy = "missionByNummission",orphanRemoval=true)
     public Collection<Fixe> getFixesByNummission() {
         return fixesByNummission;
     }

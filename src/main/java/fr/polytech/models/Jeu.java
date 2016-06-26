@@ -53,7 +53,7 @@ public class Jeu {
         return result;
     }
 
-    @OneToMany(mappedBy = "jeuByNumjeu")
+    @OneToMany(mappedBy = "jeuByNumjeu",orphanRemoval=true)
     public Collection<Appartient> getAppartientsByNumjeu() {
         return appartientsByNumjeu;
     }
@@ -62,7 +62,7 @@ public class Jeu {
         this.appartientsByNumjeu = appartientsByNumjeu;
     }
 
-    @OneToMany(mappedBy = "jeuByNumjeu")
+    @OneToMany(mappedBy = "jeuByNumjeu",orphanRemoval=true)
     public Collection<Mission> getMissionsByNumjeu() {
         return missionsByNumjeu;
     }

@@ -13,5 +13,5 @@ public interface MissionDao  extends CrudRepository<Mission, Long> {
      * Note that this method is not implemented and its working code will be
      * automagically generated from its signature by Spring Data JPA.
      */
-    Mission findBynumjeu(int numjeu);
+    Iterable<Mission> findBynumjeu(int numjeu);
 }

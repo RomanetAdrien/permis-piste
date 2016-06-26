@@ -14,5 +14,5 @@ public interface AppartientDao  extends CrudRepository<Appartient, Long> {
      * Note that this method is not implemented and its working code will be
      * automagically generated from its signature by Spring Data JPA.
      */
-    Appartient findBynumjeu(int numjeu);
+    Iterable<Appartient> findBynumjeu(int numjeu);
 }
