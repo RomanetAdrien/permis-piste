@@ -70,14 +70,11 @@ public class ApprenantController {
     }
 
     @RequestMapping(value="/apprenant-modif", method = RequestMethod.POST)
-    public String modifi(@ModelAttribute Apprenant apprenant, Model model){
+    public String modifi(HttpServletRequest request, @RequestParam("id") int id, Model model){
         try{
-            System.out.println(apprenant.getNumapprenant());
-            System.out.println(apprenant.getNomapprenant());
-            System.out.println(apprenant.getPrenomapprenant());
-            Apprenant apprenantToModif = apprenantDao.findBynumapprenant(apprenant.getNumapprenant());
-            apprenantToModif.setNomapprenant(apprenant.getNomapprenant());
-            apprenantToModif.setPrenomapprenant(apprenant.getPrenomapprenant());
+            Apprenant apprenantToModif = apprenantDao.findBynumapprenant(id);
+            apprenantToModif.setNomapprenant(request.getParameter("firstname"));
+            apprenantToModif.setPrenomapprenant(request.getParameter("lastname"));
             apprenantDao.save(apprenantToModif);
         }
         catch (Exception ex) {

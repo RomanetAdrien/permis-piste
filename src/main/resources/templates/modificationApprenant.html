@@ -22,9 +22,9 @@
         <form action="#" th:action="@{/apprenant-modif}" th:object="${Apprenant}" method="post">
             <table>
                 <tr>
-                    <td>Nom: <input type="text" th:name="*{nomapprenant}" th:value="${apprenants.nomapprenant}"/></td>
-                    <td>Prénom: <input type="text" th:name="*{prenomapprenant}" th:value="${apprenants.prenomapprenant}"/></td>
-                    <input display="none" th:name="*{numapprenant}" th:value="${apprenants.numapprenant}"/>
+                    <td>Nom: <input type="text" th:name="lastname" th:value="${apprenants.nomapprenant}"/></td>
+                    <td>Prénom: <input type="text" th:name="firstname" th:value="${apprenants.prenomapprenant}"/></td>
+                    <input display="none" th:name="id" th:value="${apprenants.numapprenant}"/>
                 </tr>
             </table>
             <button type="submit" class="button" id="modifApprenant">Enregistrer Apprenant</button>
