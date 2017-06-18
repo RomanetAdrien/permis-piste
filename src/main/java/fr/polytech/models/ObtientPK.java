@@ -5,7 +5,7 @@ import javax.persistence.Id;
 import java.io.Serializable;
 
 /**
- * Created by John.
+ * Created by Adrien.
  */
 public class ObtientPK implements Serializable {
     private int numapprenant;

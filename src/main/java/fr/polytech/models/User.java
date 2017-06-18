@@ -5,7 +5,7 @@ import javax.validation.constraints.NotNull;
 import java.util.Collection;
 
 /**
- * Created by John.
+ * Created by theo.
  */
 @Entity
 @Table(name = "users")

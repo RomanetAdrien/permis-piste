@@ -6,7 +6,7 @@ import javax.persistence.Id;
 import javax.persistence.IdClass;
 
 /**
- * Created by John.
+ * Created by Adrien.
  */
 @Entity
 @IdClass(InscriptionPK.class)

@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.Map;
 
 /**
- * Created by theo.
+ * Created by theo
  */
 @Controller
 public class MainController implements ErrorController{

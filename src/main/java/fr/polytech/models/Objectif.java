@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Collection;
 
 /**
- * Created by John.
+ * Created by Adrien.
  */
 @Entity
 public class Objectif {

@@ -6,7 +6,7 @@ import javax.transaction.Transactional;
 import java.util.ArrayList;
 
 /**
- * Created by John.
+ * Created by Adrien.
  */
 @Transactional
 public interface UserDao extends CrudRepository<User, Long> {

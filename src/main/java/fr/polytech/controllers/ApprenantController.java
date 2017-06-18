@@ -1,7 +1,6 @@
 package fr.polytech.controllers;
 
-import fr.polytech.models.Apprenant;
-import fr.polytech.models.ApprenantDao;
+import fr.polytech.models.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by theo
@@ -99,6 +100,30 @@ public class ApprenantController {
         return new ModelAndView(destinationPage);
     }
 
+
+
+
+
+    @RequestMapping("/resultsApprenants")
+    public String results(Model model) {
+        List<Object> list = new ArrayList();
+        List<Obtient> listResults = (List<Obtient>) obtientDao.findAll();
+        for(Obtient obtient:listResults){
+            List<Object> objectList = new ArrayList();
+            objectList.add(obtient);
+            objectList.add(apprenantDao.findBynumapprenant(obtient.getNumapprenant()));
+            objectList.add(actionDao.findBynumaction(obtient.getNumaction()));
+            list.add(objectList);
+        }
+        model.addAttribute("results", list);
+        return "resultsApprenants";
+    }
+
     @Autowired
     private ApprenantDao apprenantDao;
+    @Autowired
+    private ObtientDao obtientDao;
+    @Autowired
+    private ActionDao actionDao;
+
 }

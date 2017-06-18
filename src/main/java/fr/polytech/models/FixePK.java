@@ -5,7 +5,7 @@ import javax.persistence.Id;
 import java.io.Serializable;
 
 /**
- * Created by John.
+ * Created by Quentin.
  */
 public class FixePK implements Serializable {
     private int nummission;

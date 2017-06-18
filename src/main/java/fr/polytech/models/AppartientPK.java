@@ -5,7 +5,7 @@ import javax.persistence.Id;
 import java.io.Serializable;
 
 /**
- * Created by John.
+ * Created by theo
  */
 public class AppartientPK implements Serializable {
     private int numjeu;

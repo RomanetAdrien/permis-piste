@@ -5,7 +5,7 @@ import org.springframework.data.repository.CrudRepository;
 import javax.transaction.Transactional;
 
 /**
- * Created by FloAdmin on 26/06/2016.
+ * Created by Adrien.
  */
 
 @Transactional

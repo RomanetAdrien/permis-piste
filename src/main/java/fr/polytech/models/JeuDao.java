@@ -5,7 +5,7 @@ import org.springframework.data.repository.CrudRepository;
 import javax.transaction.Transactional;
 
 /**
- * Created by John.
+ * Created by Adrien.
  */
 @Transactional
 public interface JeuDao extends CrudRepository<Jeu, Long> {

@@ -3,7 +3,7 @@ package fr.polytech.models;
 import javax.persistence.*;
 
 /**
- * Created by John.
+ * Created by Quentin.
  */
 @Entity
 @IdClass(ObtientPK.class)
