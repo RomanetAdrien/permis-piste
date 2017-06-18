@@ -29,8 +29,9 @@ public class GameController {
             request.setAttribute("mesJeux", jeuDao.findAll());
             destinationPage = "jeux";
         } catch (Exception e) {
-            request.setAttribute("MesErreurs", e.getMessage());
-            destinationPage = "Erreur";
+            request.setAttribute("error", "500 Internal Error");
+            request.setAttribute("message", e.getMessage());
+            destinationPage = "error";
 
         }
         return new ModelAndView(destinationPage);
@@ -77,9 +78,9 @@ public class GameController {
             model.addAttribute("Jeu", jeuDao.findBynumjeu(id));
             destinationPage = "modicationJeu";
         } catch (Exception e) {
-            System.out.println(e);
-            request.setAttribute("MesErreurs", e.getMessage());
-            destinationPage = "Erreur";
+            request.setAttribute("error", "500 Internal Error");
+            request.setAttribute("message", e.getMessage());
+            destinationPage = "error";
         }
         return new ModelAndView(destinationPage);
     }
@@ -96,8 +97,9 @@ public class GameController {
             request.setAttribute("mesMissions", jeuDao.findAll());
             destinationPage = "missions";
         } catch (Exception e) {
-            request.setAttribute("MesErreurs", e.getMessage());
-            destinationPage = "Erreur";
+            request.setAttribute("error", "500 Internal Error");
+            request.setAttribute("message", e.getMessage());
+            destinationPage = "error";
 
         }
         return new ModelAndView(destinationPage);
@@ -112,9 +114,9 @@ public class GameController {
             request.setAttribute("jeux", jeuDao.findBynumjeu(idInt));
             destinationPage = "detailsJeu";
         } catch (Exception e) {
-            System.out.println(e);
-            request.setAttribute("MesErreurs", e.getMessage());
-            destinationPage = "Erreur";
+            request.setAttribute("error", "500 Internal Error");
+            request.setAttribute("message", e.getMessage());
+            destinationPage = "error";
         }
         return new ModelAndView(destinationPage);
     }

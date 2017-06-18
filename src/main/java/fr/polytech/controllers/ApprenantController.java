@@ -92,9 +92,9 @@ public class ApprenantController {
             request.setAttribute("apprenants", apprenantDao.findBynumapprenant(id));
             destinationPage = "modificationApprenant";
         } catch (Exception e) {
-            System.out.println(e);
-            request.setAttribute("MesErreurs", e.getMessage());
-            destinationPage = "Erreur";
+            request.setAttribute("error", "500 Internal Error");
+            request.setAttribute("message", e.getMessage());
+            destinationPage = "error";
         }
         return new ModelAndView(destinationPage);
     }
