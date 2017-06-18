@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:include="fragments :: head">...</head>
+<body>
+<header id="header" th:include="fragments :: header">...</header>
+
+<section id="main">
+    <div class="container">
+        <header class="major">
+            <h2>Résultats Apprenant</h2>
+        </header>
+    </div>
+</section>
+<h2>Résultats Apprenant</h2>
+<!-- Table -->
+<section class="list">
+    <div class="container">
+        <section>
+            <div class="table-wrapper box box-primary">
+                <table id="results" class="table table-hover customTable">
+                    <thead>
+                    <tr>
+                        <th>Last Name</th>
+                        <th>First Name</th>
+                        <th>Mission</th>
+                        <th>Scoring</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="item : ${results}">
+                        <td th:text="${item.get(1).nomapprenant}">${item.get(1).nomapprenant}</td>
+                        <td th:text="${item.get(1).prenomapprenant}">${item.get(1).prenomapprenant}</td>
+                        <td th:text="${item.get(2).libaction}">${item.get(2).libaction}</td>
+                        <td th:text="${item.get(0).valeur}">${item.get(0).valeur}</td>
+                    </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </section>
+
+    </div>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#results').dataTable( {
+                "order": [[0, "asc"]],
+                "autoWidth": false,
+                fixedHeader: true
+            });
+        });
+    </script>
+</section>
+</body>
+</html>
