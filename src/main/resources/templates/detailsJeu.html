@@ -8,7 +8,7 @@
     <div class="container">
 
         <header class="major">
-            <h2>Modifier le jeu</h2>
+            <h2>Details du jeu n° <span th:text="${jeu.numjeu}">Num Jeu</span> : <span th:text="${jeu.libellejeu}">LibJeu</span> </h2>
         </header>
     </div>
 </section>
@@ -25,27 +25,14 @@
                 <table>
                     <thead>
                     <tr>
-                        <th>Numéro du jeu</th>
-                        <th>Libellé du jeu</th>
-                        <th>Missions</th>
-                        <th>Actions</th>
+                        <th>Numéro de l'action</th>
+                        <th>Libellé de l'action</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr th:each="jeu : ${jeux}">
-                        <td th:text="${jeu.numjeu}"></td>
-                        <td th:text="${jeu.libellejeu}"></td>
-                        <td>
-                        <tr th:each="mission :${missions}">
-                            <td th:text="${mission.nummission}"></td>
-                            <td th:text="${mission.libmission}"></td>
-                        </tr>
-                        </td>
-                        <td>
-                        <tr th:each="action :${actions}">
-                            <td th:text="${action.numAction}"></td>
-                        </tr>
-                        </td>
+                    <tr th:each="action : ${actions}">
+                        <td th:text="${action.numaction}"></td>
+                        <td th:text="${action.libaction}"></td>
                     </tr>
                     </tbody>
                 </table>
