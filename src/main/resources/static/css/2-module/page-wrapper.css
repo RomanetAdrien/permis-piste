@@ -1,0 +1,10 @@
+#page-wrapper {
+  min-height: 100vh; }
+  #page-wrapper #header {
+    height: 51px;
+    width: 100%; }
+  #page-wrapper #main {
+    padding-bottom: 58px;
+    margin-bottom: -58px; }
+
+/*# sourceMappingURL=page-wrapper.css.map */

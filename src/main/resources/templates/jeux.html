@@ -4,63 +4,64 @@
 <body>
 <header id="header" th:include="fragments :: header">...</header>
 
-<section id="main">
+<section id="main" class="marginTop">
     <div class="container">
 
         <header class="major">
-            <h2>Liste des jeux</h2>
+            <h1>Liste des jeux</h1>
         </header>
     </div>
 </section>
 
 <!-- Main -->
 <!-- Table -->
-<section  class="wrapper">
+<section  class="list">
     <div class="container">
 
         <section>
 
-            <div class="table-wrapper">
-                <table>
+            <div class="table-wrapper box box-primary">
+                <table id="listJeux" class="table table-hover customTable">
                     <thead>
                     <tr>
                         <th>Numéro du jeu</th>
                         <th>Libellé du jeu</th>
+                        <th data-orderable="false" class="large"></th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr th:each="jeu : ${mesJeux}">
-                        <tr>
-                            <td th:text="${jeu.numjeu}"></td>
-                            <td th:text="${jeu.libellejeu}"></td>
-                            <td>
-                                <a th:href="@{/detailsJeu(id=${jeu.numjeu})}"> <button class="button alt small ">Détails</button></a>
-                                <a th:href="@{/jeu-modification(id=${jeu.numjeu})}"> <button class="button small ">Modifier</button></a>
-                                <a th:href="@{/supprimerJeu(id=${jeu.numjeu})}"> <button class="button small red">Supprimer</button></a>
-                            </td>
-                        </tr>
+                        <td th:text="${jeu.numjeu}"></td>
+                        <td th:text="${jeu.libellejeu}"></td>
+                        <td>
+                            <div class="btn-group btn-group-justified" role="group">
+                                <a th:href="@{/detailsJeu(id=${jeu.numjeu})}" class="btn btn-primary">Détails</a>
+                                <a th:href="@{/jeu-modification(id=${jeu.numjeu})}" class="btn btn-warning">Modifier</a>
+                                <a th:href="@{/supprimerJeu(id=${jeu.numjeu})}" class="btn btn-danger">Supprimer</a>
+                            </div>
+                        </td>
                     </tr>
                     </tbody>
                 </table>
+                <a href="/jeu-new" class="btn btn-block btn-success btnCustom">Ajouter un nouveau jeu</a>
             </div>
+
+            <script type="text/javascript">
+                $(document).ready(function() {
+                    $('#listJeux').dataTable( {
+                        "order": [[0, "asc"]],
+                        "autoWidth": false,
+                        fixedHeader: true
+                    });
+                });
+            </script>
 
         </section>
 
     </div>
 </section>
 
-<!-- Adding -->
-<section>
-    <div class="container">
-        <header class="major"><a href="/jeu-new" class="button fit small">Ajouter un nouveau jeu</a></header>
-
-
-    </div>
-</section>
-
-
 <!-- Footer -->
-
 <footer id="footer" th:include="fragments :: footer">...</footer>
 </body>
 </html>

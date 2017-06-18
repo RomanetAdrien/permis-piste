@@ -1,0 +1,19 @@
+#one {
+  background-color: seagreen;
+  padding: 3em;
+  text-align: center;
+  color: whitesmoke; }
+  #one header {
+    margin-bottom: 4em; }
+
+#two {
+  text-align: center;
+  padding: 3em; }
+  #two hr {
+    border-color: #bbbbbb; }
+  #two section {
+    margin: 1em 0em; }
+  #two .actions {
+    margin: 3em 0 0 0; }
+
+/*# sourceMappingURL=index.css.map */

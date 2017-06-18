@@ -1,0 +1,25 @@
+#banner {
+  background: url("images/overlay.png"), url("../images/banner.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #ffffff;
+  padding: 16em 0em 14em;
+  text-align: center;
+  height: 100vh; }
+  #banner .bannerBox {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 1.5em; }
+  #banner h2 {
+    color: #ffffff;
+    font-size: 3em;
+    line-height: 1em;
+    margin: 0 0 0.5em 0;
+    padding: 0; }
+  #banner p {
+    font-size: 1.5em;
+    margin: 1.5em 0 0 0; }
+  #banner .actions {
+    margin: 3em 0 0 0; }
+
+/*# sourceMappingURL=banner.css.map */

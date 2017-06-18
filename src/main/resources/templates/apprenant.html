@@ -4,57 +4,62 @@
 <body>
 <header id="header" th:include="fragments :: header">...</header>
 
-<section id="main">
+<section id="main" class="marginTop">
     <div class="container">
 
         <header class="major">
-            <h2>Liste des apprenants</h2>
+            <h1>Liste des apprenants</h1>
         </header>
     </div>
 </section>
 
 <!-- Main -->
 <!-- Table -->
-<section  class="wrapper">
+<section class="list">
     <div class="container">
         <section>
-            <div class="table-wrapper">
-                <table>
+            <div class="table-wrapper box box-primary">
+                <table id="listApprenants" class="table table-hover customTable">
                     <thead>
                     <tr>
                         <th>Name</th>
                         <th>Surname</th>
-                        <th>Scoring</th>
+                        <th class="tiny">Scoring</th>
+                        <th data-orderable="false" class="large"></th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr th:each="item : ${apprenants}">
-                        <tr>
-                            <td th:text="${item.nomapprenant}">Jean</td>
-                            <td th:text="${item.prenomapprenant}">2</td>
-                            <td th:text="${item.numapprenant}">19.99</td>
-                            <td><a th:href="@{/apprenants-modifier(id=${item.numapprenant})}" class="button alt small">Modifier</a>
-                                <a th:href="@{/apprenants-supprimer(id=${item.numapprenant})}" class="button red">Supprimer</a>
-                                <a th:href="@{/apprenants-detail(id=${item.numapprenant})}" class="button small">Détails</a>
-                            </td>
-                        </tr>
+                        <td th:text="${item.nomapprenant}">Jean</td>
+                        <td th:text="${item.prenomapprenant}">2</td>
+                        <td th:text="${item.numapprenant}">19.99</td>
+                        <td>
+                            <div class="btn-group btn-group-justified" role="group">
+                                <a th:href="@{/apprenants-detail(id=${item.numapprenant})}" class="btn btn-primary">Détails</a>
+                                <a th:href="@{/apprenants-modifier(id=${item.numapprenant})}" class="btn btn-warning">Modifier</a>
+                                <a th:href="@{/apprenants-supprimer(id=${item.numapprenant})}" class="btn btn-danger">Supprimer</a>
+                            </div>
+                        </td>
                     </tr>
                     </tbody>
                 </table>
+
+                <a th:href="@{/apprenants-new}" class="btn btn-block btn-success btnCustom">Ajouter un nouvel apprenant</a>
             </div>
 
         </section>
 
     </div>
-</section>
 
-<!-- Adding -->
-<section>
-    <div class="container">
-        <header class="major"><a th:href="@{/apprenants-new}" class="button fit small">Ajouter un nouvel apprenant</a></header>
-
-
-    </div>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#listApprenants').dataTable( {
+                "order": [[0, "asc"]],
+                "autoWidth": false,
+                fixedHeader: true
+            });
+        });
+    </script>
 </section>
 
 
