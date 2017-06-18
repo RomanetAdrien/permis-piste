@@ -1,0 +1,29 @@
+//TABLE CSS
+
+table tr td, th
+  vertical-align: middle !important
+
+.customTable
+  thead, tfoot
+    background-color: _palette(table,bg)
+    color: _palette(general,light)
+  thead tr:hover, tfoot tr:hover
+    background-color: _palette(table,bg) !important
+  .glyphicon
+    color: _palette(general,highlight)
+    @include transition(color,0.2s,ease,0s)
+
+  .tiny
+    width: 160px
+
+  .medium
+    width: 220px
+
+  .large
+    width: 300px
+
+  tbody tr
+    td
+      @include transition(background-color,0.2s,ease,0s)
+    &:hover td
+      background-color: _palette(general,hover)

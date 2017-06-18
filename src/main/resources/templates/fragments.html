@@ -9,42 +9,43 @@
     <link rel="icon" type="image/png" th:href="@{/images/favicon.png}" />
     <link rel='stylesheet' href='/webjars/bootstrap/3.2.0/css/bootstrap.min.css'/>
     <link rel='stylesheet' href='/webjars/datatables/1.10.12/css/dataTables.bootstrap.min.css'/>
-    <!--[if lte IE 8]><script src="/css/ie/html5shiv.js"></script><![endif]-->
+    <link rel="stylesheet" href="/webjars/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" th:href="@{/css/main.css}"/>
     <script type="text/javascript" src="/webjars/jquery/2.1.1/jquery.min.js"></script>
-    <!--<script src="/js/jquery.min.js"></script>-->
-    <!--<script src="/js/skel.min.js"></script>-->
-    <!--<script src="/js/skel-layers.min.js"></script>-->
-    <!--<script src="/js/general.js"></script>-->
-    <!--<script src="/js/init.js"></script>-->
-    <script type="text/javascript" src="/webjars/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="/webjars/datatables/1.10.12/js/jquery.dataTables.js"></script>
-    <script type="text/javascript" src="/webjars/datatables/1.10.12/js/dataTables.bootstrap.min.js"></script>
-    <noscript>
-        <!--<link rel="stylesheet" href="/css/skel.css" />-->
-        <link rel="stylesheet" th:href="@{/css/style.css}"/>
-        <link rel="stylesheet" href="/css/style-xlarge.css" />
-    </noscript>
-    <!--[if lte IE 8]><link rel="stylesheet" href="/css/ie/v8.css" /><![endif]-->
 </head>
 <body>
     <!-- Header -->
     <header th:fragment="header">
-        <h1><a href="/">Permis Piste</a></h1>
-        <nav id="nav">
-            <ul>
-                <li><a href="/">Accueil</a></li>
-                <li><a href="/apprenants">Apprenants</a></li>
-                <li><a href="/jeux">Jeux</a></li>
-                <li><a href="/action">Actions</a></li>
-            </ul>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/">Permis Piste</a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/">Accueil</a></li>
+                        <li><a href="/apprenants">Apprenants</a></li>
+                        <li><a href="/jeux">Jeux</a></li>
+                        <li><a href="/action">Actions</a></li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div>
         </nav>
     </header>
 
     <!-- Footer -->
-    <footer th:fragment="footer">
+    <footer th:fragment="footer" id="footer">
         <div class="container">
             <div class="row">
-                <section class="4u 6u(medium) 12u$(small)">
+                <section class="col-lg-4 col-md-6 col-xs-12">
                     <h3>Un projet d'école</h3>
                     <p>Utilisation des technologies J2E suivantes :</p>
                     <ul class="alt">
@@ -54,40 +55,33 @@
                         <li><a href="#">Hibernate</a></li>
                     </ul>
                 </section>
-                <section class="4u 6u$(medium) 12u$(small)">
+                <section class="col-lg-4 col-md-6 col-xs-12">
                     <h3>L'équipe du projet</h3>
                     <p>Tous issus de la filière informatique de Polytech Lyon</p>
                     <ul class="alt">
-                        <li><a href="#">Jonathan PLATTEAU</a></li>
-                        <li><a href="#">Gaëtan ROCHE</a></li>
-                        <li><a href="#">Cyril COUTURIER</a></li>
-                        <li><a href="#">Benoit SEMET</a></li>
-                        <li><a href="#">Florian MARTIN</a></li>
+                        <li><a href="#">BAUD Adrien</a></li>
+                        <li><a href="#">GONDRAS Pierre-Louis</a></li>
+                        <li><a href="#">Goria Théo</a></li>
+                        <li><a href="#">Romanet Adrien</a></li>
+                        <li><a href="#">Tournier Quentin</a></li>
                     </ul>
                 </section>
-                <section class="4u$ 12u$(medium) 12u$(small)">
-                    <h3>Voir le code source</h3>
-                    <ul class="icons">
-                        <li><a href="https://github.com/J0hn-/Permis-Piste" class="icon rounded fa-github"><span class="label">GitHub</span></a></li>
-                    </ul>
-                    <ul class="tabular">
-                        <li>
-                            <h3>Adresse</h3>
-                            15 Boulevard André Latarjet<br/>
-                            69100 Villeurbanne
-                        </li>
-                        <li>
-                            <h3>Mail</h3>
-                            <a href="mailto:contact@jonathan.pl">contact@jonathan.pl</a>
-                        </li>
-                    </ul>
+                <section class="col-lg-4 col-md-6 col-xs-12">
+                    <h3>Adresse</h3>
+                    <p>
+                        15 Boulevard André Latarjet<br/>
+                        69100 Villeurbanne
+                    </p>
                 </section>
             </div>
-            <ul class="copyright">
-                <li>&copy; Informatique Répartie</li>
-                <li>Polytech Lyon</li>
-            </ul>
+            <div class="copyright">
+                <p>&copy; F.R.E.P | Polytech Lyon</p>
+            </div>
         </div>
+
+        <script type="text/javascript" src="/webjars/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/webjars/datatables/1.10.12/js/jquery.dataTables.js"></script>
+        <script type="text/javascript" src="/webjars/datatables/1.10.12/js/dataTables.bootstrap.min.js"></script>
     </footer>
 </body>
 </html>

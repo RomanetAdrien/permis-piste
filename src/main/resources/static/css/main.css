@@ -1,0 +1,330 @@
+html, body {
+  font-family: "Source Sans Pro", sans-serif;
+  background-color: WhiteSmoke;
+  color: #333333;
+}
+
+p {
+  font-size: 1.2em;
+}
+
+a {
+  font-size: 1.2em;
+  color: #1067AE;
+  -webkit-transition: all 0.2s ease 0s;
+  -moz-transition: all 0.2s ease 0s;
+  -o-transition: all 0.2s ease 0s;
+  -ms-transition: all 0.2s ease 0s;
+  transition: all 0.2s ease 0s;
+}
+a:hover {
+  color: #2090ea;
+  text-decoration: none;
+}
+a:focus {
+  color: #1067AE;
+  text-decoration: none;
+}
+
+h1, h2 {
+  text-align: center;
+}
+
+h1 {
+  font-size: 40pt;
+}
+
+.marginTop {
+  margin-top: 5em;
+}
+
+.mainContainer {
+  padding-bottom: 1.5em;
+}
+
+.flex--center-wrap, .flex-start-center-wrap, .flex-center-center-wrap {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.flex-start-center-wrap {
+  align-items: flex-start;
+}
+
+.flex-center-center-wrap {
+  align-items: center;
+}
+
+.flex-center--wrap {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.flex-center-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.box {
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #dddddd;
+  border-radius: 5px;
+  margin: 60px 0px;
+}
+.box .box-title {
+  margin-top: -10px;
+}
+
+.box-noMargin {
+  margin: 30px 0 !important;
+}
+
+.box-primary {
+  border-top: 2px solid #1067AE;
+}
+
+.box-danger {
+  border-top: 2px solid red;
+}
+
+.box-success {
+  border-top: 2px solid darkgreen;
+}
+
+table tr td, th {
+  vertical-align: middle !important;
+}
+
+.customTable thead, .customTable tfoot {
+  background-color: #545454;
+  color: #ffffff;
+}
+.customTable thead tr:hover, .customTable tfoot tr:hover {
+  background-color: #545454 !important;
+}
+.customTable .glyphicon {
+  color: #1067AE;
+  -webkit-transition: color 0.2s ease 0s;
+  -moz-transition: color 0.2s ease 0s;
+  -o-transition: color 0.2s ease 0s;
+  -ms-transition: color 0.2s ease 0s;
+  transition: color 0.2s ease 0s;
+}
+.customTable .tiny {
+  width: 160px;
+}
+.customTable .medium {
+  width: 220px;
+}
+.customTable .large {
+  width: 300px;
+}
+.customTable tbody tr td {
+  -webkit-transition: background-color 0.2s ease 0s;
+  -moz-transition: background-color 0.2s ease 0s;
+  -o-transition: background-color 0.2s ease 0s;
+  -ms-transition: background-color 0.2s ease 0s;
+  transition: background-color 0.2s ease 0s;
+}
+.customTable tbody tr:hover td {
+  background-color: silver;
+}
+
+.navbarCustom {
+  margin-bottom: 0;
+  border-radius: 0;
+}
+
+.dropdown-menu > li > a {
+  padding: 6px 20px;
+}
+
+/* Footer */
+#footer {
+  background-color: #222222;
+  padding: 6px 0px;
+  color: gray;
+}
+#footer p {
+  margin: 0px;
+}
+#footer h3 {
+  color: whitesmoke;
+}
+#footer a {
+  color: gray;
+  text-decoration: none;
+}
+#footer a:hover {
+  color: lightgray;
+}
+#footer .copyright {
+  padding-top: 2em;
+  text-align: center;
+  font-size: 0.8em;
+}
+
+#page-wrapper {
+  min-height: 100vh;
+}
+#page-wrapper #header {
+  height: 51px;
+  width: 100%;
+}
+#page-wrapper #main {
+  padding-bottom: 58px;
+  margin-bottom: -58px;
+}
+
+#banner {
+  background: url("images/overlay.png"), url("../images/banner.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #ffffff;
+  padding: 16em 0em 14em;
+  text-align: center;
+  height: 100vh;
+}
+#banner .bannerBox {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 1.5em;
+}
+#banner h2 {
+  color: #ffffff;
+  font-size: 3em;
+  line-height: 1em;
+  margin: 0 0 0.5em 0;
+  padding: 0;
+}
+#banner p {
+  font-size: 1.5em;
+  margin: 1.5em 0 0 0;
+}
+#banner .actions {
+  margin: 3em 0 0 0;
+}
+
+/* Icon */
+.icon {
+  text-decoration: none;
+  border-bottom: none;
+  position: relative;
+  margin-bottom: 0.5em;
+}
+
+.rounded {
+  border-radius: 100%;
+  border: 1px solid lightgray;
+  display: inline-block;
+  height: 2em;
+  line-height: 2em;
+  text-align: center;
+  width: 2em;
+}
+
+.big {
+  font-size: 3.5em;
+}
+
+.icon:before {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  text-transform: none !important;
+}
+
+.icon > .label {
+  display: none;
+}
+
+/* Image */
+.image {
+  border-radius: 4px;
+  border: 0;
+  display: inline-block;
+  position: relative;
+}
+
+.image img {
+  border-radius: 4px;
+  display: block;
+}
+
+.image.left {
+  float: left;
+  padding: 0 1.5em 1em 0;
+  top: 0.25em;
+}
+
+.image.right {
+  float: right;
+  padding: 0 0 1em 1.5em;
+  top: 0.25em;
+}
+
+.image.left, .image.right {
+  max-width: 40%;
+}
+
+.image.left img, .image.right img {
+  width: 100%;
+}
+
+.image.fit {
+  display: block;
+  margin: 0 0 2em 0;
+  width: 100%;
+}
+
+.image.fit img {
+  width: 100%;
+}
+
+#one {
+  background-color: seagreen;
+  padding: 3em;
+  text-align: center;
+  color: whitesmoke;
+}
+#one header {
+  margin-bottom: 4em;
+}
+
+#two {
+  text-align: center;
+  padding: 3em;
+}
+#two hr {
+  border-color: #bbbbbb;
+}
+#two section {
+  margin: 1em 0em;
+}
+#two .actions {
+  margin: 3em 0 0 0;
+}
+
+#main {
+  margin-bottom: 10em;
+}
+
+.list td, .list th {
+  font-size: 1.3em;
+}
+.list .btnCustom {
+  margin-top: 2em;
+}
+
+#form h2 {
+  text-align: left;
+  font-weight: bold;
+}
+
+/*# sourceMappingURL=main.css.map */
