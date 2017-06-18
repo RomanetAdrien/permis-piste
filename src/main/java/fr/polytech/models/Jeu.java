@@ -59,7 +59,14 @@ public class Jeu {
     }
 
     public void setAppartientsByNumjeu(Collection<Appartient> appartientsByNumjeu) {
-        this.appartientsByNumjeu = appartientsByNumjeu;
+        if(this.appartientsByNumjeu != null){
+            this.appartientsByNumjeu.clear();
+            if (appartientsByNumjeu != null) {
+                this.appartientsByNumjeu.addAll(appartientsByNumjeu);
+            }
+        } else {
+            this.appartientsByNumjeu = appartientsByNumjeu;
+        }
     }
 
     @OneToMany(mappedBy = "jeuByNumjeu",orphanRemoval=true)
@@ -68,6 +75,13 @@ public class Jeu {
     }
 
     public void setMissionsByNumjeu(Collection<Mission> missionsByNumjeu) {
-        this.missionsByNumjeu = missionsByNumjeu;
+        if(this.missionsByNumjeu != null){
+            this.missionsByNumjeu.clear();
+            if (missionsByNumjeu != null) {
+                this.missionsByNumjeu.addAll(missionsByNumjeu);
+            }
+        } else {
+            this.missionsByNumjeu = missionsByNumjeu;
+        }
     }
 }

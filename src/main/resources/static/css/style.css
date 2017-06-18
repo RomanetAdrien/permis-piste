@@ -974,6 +974,7 @@ input[type="submit"].big,
 		color: #ffffff;
 		padding: 16em 0em 14em;
 		text-align: center;
+		height : 100vh;
 	}
 
 		#banner h2 {

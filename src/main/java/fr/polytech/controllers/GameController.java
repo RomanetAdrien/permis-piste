@@ -14,7 +14,7 @@ import java.util.Collection;
 import java.util.List;
 
 /**
- * Created by Cyril on 23/06/2016.
+ * Created by theo on 23/06/2016.
  */
 
 @Controller
@@ -29,8 +29,9 @@ public class GameController {
             request.setAttribute("mesJeux", jeuDao.findAll());
             destinationPage = "jeux";
         } catch (Exception e) {
-            request.setAttribute("MesErreurs", e.getMessage());
-            destinationPage = "Erreur";
+            request.setAttribute("error", "500 Internal Error");
+            request.setAttribute("message", e.getMessage());
+            destinationPage = "error";
 
         }
         return new ModelAndView(destinationPage);
@@ -123,9 +124,9 @@ public class GameController {
 
             destinationPage = "modificationJeu";
         } catch (Exception e) {
-            System.out.println(e);
-            request.setAttribute("MesErreurs", e.getMessage());
-            destinationPage = "Erreur";
+            request.setAttribute("error", "500 Internal Error");
+            request.setAttribute("message", e.getMessage());
+            destinationPage = "error";
         }
         return new ModelAndView(destinationPage);
     }
@@ -142,8 +143,9 @@ public class GameController {
             request.setAttribute("mesMissions", jeuDao.findAll());
             destinationPage = "missions";
         } catch (Exception e) {
-            request.setAttribute("MesErreurs", e.getMessage());
-            destinationPage = "Erreur";
+            request.setAttribute("error", "500 Internal Error");
+            request.setAttribute("message", e.getMessage());
+            destinationPage = "error";
 
         }
         return new ModelAndView(destinationPage);
@@ -165,9 +167,9 @@ public class GameController {
             request.setAttribute("actions", actions);
             destinationPage = "detailsJeu";
         } catch (Exception e) {
-            System.out.println(e);
-            request.setAttribute("MesErreurs", e.getMessage());
-            destinationPage = "Erreur";
+            request.setAttribute("error", "500 Internal Error");
+            request.setAttribute("message", e.getMessage());
+            destinationPage = "error";
         }
         return new ModelAndView(destinationPage);
     }

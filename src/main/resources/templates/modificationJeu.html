@@ -22,8 +22,8 @@
         <form action="#" th:action="@{/jeu-modif}" th:object="${Jeu}" method="post">
             <table>
                 <tr>
-                    <td>Nom: <input type="text" th:field="*{libellejeu}" th:value="${Jeu.libellejeu}"/></td>
-                    <td>Nom: <input type="text" th:field="*{numjeu}" th:value="${Jeu.numjeu}"/></td>
+                    <td>Libellé: <input type="text" th:field="*{libellejeu}" th:value="${Jeu.libellejeu}"/></td>
+                    <td>Numéro: <input type="text" th:field="*{numjeu}" th:value="${Jeu.numjeu}"/></td>
                 </tr>
             </table>
             <button type="submit" class="button" id="createJeu">Enregistrer Jeu</button>
