@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 /**
- * Created by FloAdmin on 26/06/2016.
+ * Created by theo on 26/06/2016.
  */
 @Controller
 public class ActionController {

@@ -14,7 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * Created by Gaëtan
+ * Created by theo
  */
 @Controller
 public class ApprenantController {

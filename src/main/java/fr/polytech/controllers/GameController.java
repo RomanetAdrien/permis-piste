@@ -14,7 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * Created by Cyril on 23/06/2016.
+ * Created by theo on 23/06/2016.
  */
 
 @Controller
