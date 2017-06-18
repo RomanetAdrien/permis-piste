@@ -90,11 +90,11 @@ CREATE TABLE IF NOT EXISTS `apprenant` (
 --
 
 INSERT INTO `apprenant` (`NUMAPPRENANT`, `NOMAPPRENANT`, `PRENOMAPPRENANT`) VALUES
-  (1, 'PLATTEAU', 'Jonathan'),
-  (2, 'ROCHE', 'Gaetan'),
-  (3, 'COUTURIER', 'Cyril'),
-  (4, 'MARTIN', 'Florian'),
-  (5, 'SEMET', 'Benoit');
+  (1, 'ROMANET', 'Adrien'),
+  (2, 'GONDRAS', 'Pilou'),
+  (3, 'TOURNIER', 'Quentin'),
+  (4, 'BAUD', 'Adrien'),
+  (5, 'GORIA', 'Theo');
 
 
 -- --------------------------------------------------------
