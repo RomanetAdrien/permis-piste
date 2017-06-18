@@ -19,25 +19,24 @@
     <div class="container">
         <section>
             <div class="table-wrapper">
-                <table>
+                <table id="listApprenants">
                     <thead>
                     <tr>
                         <th>Name</th>
                         <th>Surname</th>
                         <th>Scoring</th>
+                        <th></th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr th:each="item : ${apprenants}">
-                        <tr>
-                            <td th:text="${item.nomapprenant}">Jean</td>
-                            <td th:text="${item.prenomapprenant}">2</td>
-                            <td th:text="${item.numapprenant}">19.99</td>
-                            <td><a th:href="@{/apprenants-modifier(id=${item.numapprenant})}" class="button alt small">Modifier</a>
-                                <a th:href="@{/apprenants-supprimer(id=${item.numapprenant})}" class="button red">Supprimer</a>
-                                <a th:href="@{/apprenants-detail(id=${item.numapprenant})}" class="button small">Détails</a>
-                            </td>
-                        </tr>
+                        <td th:text="${item.nomapprenant}">Jean</td>
+                        <td th:text="${item.prenomapprenant}">2</td>
+                        <td th:text="${item.numapprenant}">19.99</td>
+                        <td><a th:href="@{/apprenants-modifier(id=${item.numapprenant})}" class="button alt small">Modifier</a>
+                            <a th:href="@{/apprenants-supprimer(id=${item.numapprenant})}" class="button red">Supprimer</a>
+                            <a th:href="@{/apprenants-detail(id=${item.numapprenant})}" class="button small">Détails</a>
+                        </td>
                     </tr>
                     </tbody>
                 </table>
@@ -46,6 +45,16 @@
         </section>
 
     </div>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#listApprenants').dataTable( {
+                "order": [[0, "asc"]],
+                "autoWidth": false,
+                fixedHeader: true
+            });
+        });
+    </script>
 </section>
 
 <!-- Adding -->
