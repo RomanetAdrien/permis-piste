@@ -11,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -177,6 +178,17 @@ public class GameController {
     @RequestMapping("/supprimerJeu")
     public String delete(@RequestParam(value ="id")int id) {
         try {
+            Iterable<Mission> missions = missionDao.findBynumjeu(id);
+            Mission m;
+            Iterable<Fixe> fixes;
+            Iterator i = missions.iterator();
+            inscriptionDAO.delete(inscriptionDAO.findByNumjeu(id));
+            while(i.hasNext()){
+                m = (Mission)i.next();
+                fixes = fixeDAO.findByNummission(m.getNummission());
+                fixeDAO.delete(fixes);
+            }
+            missionDao.delete(missionDao.findBynumjeu(id));
             jeuDao.delete(jeuDao.findBynumjeu(id));
         }
         catch (Exception ex) {
@@ -201,6 +213,10 @@ public class GameController {
     private AppartientDao appartientDao;
     @Autowired
     private ActionDao actionDao;
+    @Autowired
+    private FixeDAO fixeDAO;
+    @Autowired
+    private InscriptionDAO inscriptionDAO;
 
 }
 
