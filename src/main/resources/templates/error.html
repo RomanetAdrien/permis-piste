@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:include="fragments :: head">...</head>
+<body>
+<header id="header" th:include="fragments :: header">...</header>
+<section id="main">
+    <div class="container">
+
+        <br/><br/><header class="major">
+            <h2 th:text="${error}">Error</h2>
+        </header>
+
+        <p th:utext="${message}">...</p>
+        <a href="/" th:href="@{/}">Back to Home Page</a>
+    </div><br/><br/><br/><br/>
+</section>
+<footer id="footer" th:include="fragments :: footer">...</footer>
+</body>
+</html>

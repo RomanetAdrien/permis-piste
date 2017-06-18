@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:include="fragments :: head">...</head>
+<body>
+<header id="header" th:include="fragments :: header">...</header>
+
+<section id="main">
+    <div class="container">
+
+        <header class="major">
+            <h2>Nouveau Jeu</h2>
+        </header>
+    </div>
+</section>
+
+<!-- Main -->
+<section  class="wrapper">
+    <div class="container">
+
+        <br>Modifier le jeu</br>
+
+        <form action="#" th:action="@{/jeu-modif}" th:object="${Jeu}" method="post">
+            <table>
+                <tr>
+                    <td>Libellé: <input type="text" th:field="*{libellejeu}" th:value="${Jeu.libellejeu}"/></td>
+                    <td>Numéro: <input type="text" th:field="*{numjeu}" th:value="${Jeu.numjeu}"/></td>
+                </tr>
+            </table>
+            <button type="submit" class="button" id="createJeu">Enregistrer Jeu</button>
+        </form>
+            <h3>Actions</h3>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Numéro de l'action</th>
+                        <th>Libellé de l'action</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="action : ${actions}">
+                        <td th:text="${action.numaction}"></td>
+                        <td th:text="${action.libaction}"></td>
+                        <td> <!-- TODO : GLYPHICON DELETE -->
+                            <a th:href="@{/jeu-delete-action(idjeu=${Jeu.numjeu}, idaction=${action.numaction})}"><strong>X</strong></a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <h4>Ajouter actions</h4>
+            <form action="#" th:action="@{/jeu-add-action}" method="post">
+                <select name="actionadd">
+                    <option th:each="action : ${actionspossibles}" th:value="${action.numaction}" th:text="${action.libaction}"></option>
+                </select>
+                <input type="hidden" name="id" th:value="${Jeu.numjeu}"/>
+                <button type="submit" class="button" id="addActionJeu">Ajouter Action</button>
+            </form>
+    </div>
+</section>
+
+
+
+<!-- Footer -->
+<footer id="footer" th:include="fragments :: footer">...</footer>
+</body>
+
+
+</html>
