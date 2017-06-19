@@ -19,97 +19,56 @@
 <section  class="list">
     <div class="container">
         <section>
-            <div class="table-wrapper box box-primary">
-                <table id="détailsApprenants" class="table table-hover customTable">
-                    <thead>
-                    <tr>
-                        <th>Id Apprenant</th>
-                        <th>Nom Apprenant</th>
-                        <th>Prénom Apprenant</th>
-                        <th>Scores</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td th:text="${apprenant.numapprenant}"></td>
-                        <td th:text="${apprenant.nomapprenant}"></td>
-                        <td th:text="${apprenant.prenomapprenant}"></td>
-                        <td>
-                            <table>
-                                <tr th:each="score :${scores}">
-                                    <td th:text="${score.numaction}"></td>
-                                    <td th:text="${mission.valeur}"></td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
+            <div class="col-md-6">
+                <div class="table-wrapper box box-primary">
+                    <table id="détailsApprenants" class="table table-hover customTable">
+                        <thead>
+                        <tr>
+                            <th>Id Apprenant</th>
+                            <th>Nom Apprenant</th>
+                            <th>Prénom Apprenant</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td th:text="${apprenant.numapprenant}"></td>
+                            <td th:text="${apprenant.nomapprenant}"></td>
+                            <td th:text="${apprenant.prenomapprenant}"></td>
+                        </tr>
+                        </tbody>
+                    </table>
 
-                <a th:href="@{/apprenants-modifier(id=${apprenant.numapprenant})}" class="btn btn-block btn-success btnCustom">Modifier l'apprenant</a>
-            </div>
-            <div class="table-wrapper">
-                <h3>Jeu Inscrit</h3>
-                <table>
-                    <thead>
-                    <tr>
-                        <th>Id jeu</th>
-                        <th>libellé jeu</th>
-                        <th></th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr th:each="jeu : ${jeux}">
-                        <td th:text="${jeu.numjeu}"></td>
-                        <td th:text="${jeu.libellejeu}"></td>
-                        <td><a th:href="@{/resultsjeu(idApprenant=${apprenant.numapprenant}, idJeu=${jeu.numjeu})}">
-                            <button type="button" class="btn btn-primary">Récapitulatif du jeu</button>
-                        </a></td>
-                    </tr>
-                    </tbody>
-                </table>
+                    <a th:href="@{/apprenants-modifier(id=${apprenant.numapprenant})}" class="btn btn-block btn-success btnCustom">Modifier l'apprenant</a>
+                </div>
             </div>
 
-
-            <!--<div class="table-wrapper">-->
-                <!--<table>-->
-                    <!--<thead>-->
-                    <!--<tr>-->
-                        <!--<th>Id Apprenant</th>-->
-                        <!--<th>Nom Apprenant</th>-->
-                        <!--<th>Prénom Apprenant</th>-->
-                        <!--<th>Scores</th>-->
-                    <!--</tr>-->
-                    <!--</thead>-->
-                    <!--<tbody>-->
-                    <!--<tr th:each="apprenant : ${apprenants}">-->
-                        <!--<td th:text="${apprenant.numapprenant}"></td>-->
-                        <!--<td th:text="${apprenant.nomapprenant}"></td>-->
-                        <!--<td th:text="${apprenant.prenomapprenant}"></td>-->
-                        <!--<td>-->
-                            <!--<tr th:each="score :${scores}">-->
-                                <!--<td th:text="${score.numaction}"></td>-->
-                                <!--<td th:text="${mission.valeur}"></td>-->
-                            <!--</tr>-->
-                    <!--</td>-->
-                    <!--</tr>-->
-                    <!--</tbody>-->
-                <!--</table>-->
-            <!--</div>-->
+            <div class="col-md-6">
+                <div class="table-wrapper box box-primary">
+                    <table id="détailsApprenantsJeux" class="table table-hover customTable">
+                        <thead>
+                        <tr>
+                            <th>Id jeu</th>
+                            <th>libellé jeu</th>
+                            <th class="tiny"></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="jeu : ${jeux}">
+                            <td th:text="${jeu.numjeu}"></td>
+                            <td th:text="${jeu.libellejeu}"></td>
+                            <td><a th:href="@{/resultsjeu(idApprenant=${apprenant.numapprenant}, idJeu=${jeu.numjeu})}">
+                                <button type="button" class="btn btn-primary">Récapitulatif du jeu</button>
+                            </a></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
 
         </section>
 
     </div>
 </section>
-
-<!-- Adding -->
-<!--<section>-->
-    <!--<div class="container">-->
-        <!--<header class="major"><a href="/modifierJeu" class="button fit small">Modifier le jeu</a></header>-->
-
-
-    <!--</div>-->
-<!--</section>-->
 </div>
 
 
