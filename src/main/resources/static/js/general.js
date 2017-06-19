@@ -1,5 +1,5 @@
 /**
- * Created by hagoterio on 18/06/17.
+ * Created by theo.
  */
 $(document).ready( function () {
     $('#buttonNext').click(function() {
