@@ -14,4 +14,5 @@ public interface ActionDao extends CrudRepository<Action,Long> {
 
     Iterable<Action> findAll();
     Action findBynumaction(int numaction);
+    Iterable<Action> findByActNumaction(Integer numaction);
 }
