@@ -70,7 +70,7 @@
                         </div>
                         <h3>Inscrire à un jeu</h3>
                         <div class="form-group">
-                            <select name="jeuinscri" class="col-xs-12 selectpicker" data-size="8">
+                            <select name="jeuinscri" class="col-xs-12 selectpicker" data-size="8" data-live-search="true">
                                 <option th:each="jeu : ${jeuxpossibles}" th:value="${jeu.numjeu}" th:text="${jeu.libellejeu}"></option>
                             </select>
                             <input type="hidden" name="id" th:value="${apprenant.numapprenant}"/>

@@ -23,15 +23,11 @@
             </div>
             <form action="#" th:action="@{/action-create}" th:object="${Action}" method="post">
                 <div class="panel-body">
-                    <div class="form-group col-md-4">
+                    <div class="form-group col-md-6">
                         <label for="libaction">Libellé</label>
                         <input type="text" class="form-control" th:field="*{libaction}" placeholder="Libellé" required="required"/>
                     </div>
-                    <div class="form-group col-md-4">
-                        <label for="actNumaction">actNumation</label>
-                        <input type="text" class="form-control" th:field="*{actNumaction}" placeholder="actNumation" required="required"/>
-                    </div>
-                    <div class="form-group col-md-4">
+                    <div class="form-group col-md-6">
                         <label for="scoremin">Score Minimum</label>
                         <input type="text" class="form-control" th:field="*{scoremin}" placeholder="Score Minimum" required="required"/>
                     </div>
@@ -41,21 +37,6 @@
                 </div>
             </form>
         </div>
-
-
-
-        <!--<br>Saisissez une nouvelle action</br>-->
-
-        <!--<form action="#" th:action="@{/action-create}" th:object="${Action}" method="post">-->
-            <!--<table>-->
-                <!--<tr>-->
-                    <!--<td>Libelle: <input type="text" th:field="*{libaction}" /></td>-->
-                    <!--<td>actNumation  <input type="text" th:field="*{actNumaction}" /></td>-->
-                    <!--<td>Score Min: <input type="text" th:field="*{scoremin}" /></td>-->
-                <!--</tr>-->
-            <!--</table>-->
-            <!--<button type="submit" class="button" id="createAction">Enregistrer Action</button>-->
-        <!--</form>-->
     </div>
 </section>
 </div>
