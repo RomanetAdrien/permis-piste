@@ -15,5 +15,9 @@ public interface ObtientDao  extends CrudRepository<Obtient, Long> {
      */
 
     Iterable<Obtient> findAll();
+
     Iterable<Obtient> findBynumapprenant(int numapprenant);
+
+    Iterable<Obtient> findByNumaction(int numaction);
+
 }
