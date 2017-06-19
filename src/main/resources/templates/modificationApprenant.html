@@ -40,6 +40,17 @@
             </div>
         </div>
 
+        <form action="#" th:action="@{/apprenant-modif}" th:object="${Apprenant}" method="post">
+            <table>
+                <tr>
+                    <td>Nom: <input type="text" th:name="lastname" th:value="${apprenant.nomapprenant}"/></td>
+                    <td>Prénom: <input type="text" th:name="firstname" th:value="${apprenant.prenomapprenant}"/></td>
+                </tr>
+            </table>
+            <input type="hidden" name="id" th:value="${apprenant.numapprenant}"/>
+            <button type="submit" class="button" id="modifApprenant">Enregistrer Apprenant</button>
+        </form>
+
         <div class="col-md-6">
             <div class="panel panel-default box-primary">
                 <div class="panel-heading">
