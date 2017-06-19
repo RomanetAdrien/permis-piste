@@ -1,5 +1,7 @@
-#form h2 {
+.form h2 {
   text-align: left;
   font-weight: bold; }
+.form .fa-times {
+  color: red; }
 
 /*# sourceMappingURL=form.css.map */

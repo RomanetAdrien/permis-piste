@@ -2,7 +2,7 @@ html, body
   font-family: 'Source Sans Pro', sans-serif
   background-color: _palette(general, bg)
   color: _palette(general, default)
-  //min-height: 100vh
+  min-height: 100vh
 
 p
   font-size: 1.2em
@@ -24,12 +24,17 @@ h1, h2
 h1
   font-size: 40pt
 
-.marginTop
-  margin-top: 5em
+#main
+  margin-bottom: 10em
+
+.paddingTop
+  padding-top: 5em
 
 // CONTAINERS //
 .mainContainer
-  padding-bottom: 1.5em
+  min-height: 100vh
+  padding-bottom: 280px
+  margin-bottom: -280px
 
 .flex--center-wrap
   display: flex

@@ -56,7 +56,7 @@ public class ApprenantController {
             jeuInscr.add(jeuDao.findBynumjeu(i.getNumjeu()));
         });
         System.out.println(apprenant);
-        model.addAttribute("apprenants",apprenant);
+        model.addAttribute("apprenant",apprenant);
         model.addAttribute("jeux", jeuInscr);
         model.addAttribute("scores", apprenant.getObtientsByNumapprenant());
         System.out.println(apprenant.getObtientsByNumapprenant());

@@ -4,25 +4,23 @@
 <body>
 <header id="header" th:include="fragments :: header">...</header>
 
-<section id="main">
+<div class="mainContainer">
+<section id="main" class="paddingTop">
     <div class="container">
 
         <header class="major">
-            <h2>Détails Apprenant</h2>
+            <h1>Détails Apprenant</h1>
         </header>
     </div>
 </section>
 
 <!-- Main -->
 <!-- Table -->
-<section  class="wrapper">
+<section  class="list">
     <div class="container">
-
         <section>
-
-
-            <div class="table-wrapper">
-                <table>
+            <div class="table-wrapper box box-primary">
+                <table id="détailsApprenants" class="table table-hover customTable">
                     <thead>
                     <tr>
                         <th>Id Apprenant</th>
@@ -32,19 +30,23 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr th:each="apprenant : ${apprenants}">
+                    <tr>
                         <td th:text="${apprenant.numapprenant}"></td>
                         <td th:text="${apprenant.nomapprenant}"></td>
                         <td th:text="${apprenant.prenomapprenant}"></td>
                         <td>
-                            <tr th:each="score :${scores}">
-                                <td th:text="${score.numaction}"></td>
-                                <td th:text="${mission.valeur}"></td>
-                            </tr>
-                    </td>
+                            <table>
+                                <tr th:each="score :${scores}">
+                                    <td th:text="${score.numaction}"></td>
+                                    <td th:text="${mission.valeur}"></td>
+                                </tr>
+                            </table>
+                        </td>
                     </tr>
                     </tbody>
                 </table>
+
+                <a th:href="@{/apprenants-modifier(id=${apprenant.numapprenant})}" class="btn btn-block btn-success btnCustom">Modifier l'apprenant</a>
             </div>
             <div class="table-wrapper">
                 <h3>Jeu Inscrit</h3>
@@ -60,11 +62,40 @@
                     <tr th:each="jeu : ${jeux}">
                         <td th:text="${jeu.numjeu}"></td>
                         <td th:text="${jeu.libellejeu}"></td>
-                        <td></td>
+                        <td><a th:href="@{/resultsjeu(idApprenant=${apprenants.numapprenant}, idJeu=${jeu.numjeu})}">
+                            <button type="button" class="btn btn-primary">Récapitulatif du jeu</button>
+                        </a></td>
                     </tr>
                     </tbody>
                 </table>
             </div>
+
+
+            <!--<div class="table-wrapper">-->
+                <!--<table>-->
+                    <!--<thead>-->
+                    <!--<tr>-->
+                        <!--<th>Id Apprenant</th>-->
+                        <!--<th>Nom Apprenant</th>-->
+                        <!--<th>Prénom Apprenant</th>-->
+                        <!--<th>Scores</th>-->
+                    <!--</tr>-->
+                    <!--</thead>-->
+                    <!--<tbody>-->
+                    <!--<tr th:each="apprenant : ${apprenants}">-->
+                        <!--<td th:text="${apprenant.numapprenant}"></td>-->
+                        <!--<td th:text="${apprenant.nomapprenant}"></td>-->
+                        <!--<td th:text="${apprenant.prenomapprenant}"></td>-->
+                        <!--<td>-->
+                            <!--<tr th:each="score :${scores}">-->
+                                <!--<td th:text="${score.numaction}"></td>-->
+                                <!--<td th:text="${mission.valeur}"></td>-->
+                            <!--</tr>-->
+                    <!--</td>-->
+                    <!--</tr>-->
+                    <!--</tbody>-->
+                <!--</table>-->
+            <!--</div>-->
 
         </section>
 
@@ -72,13 +103,14 @@
 </section>
 
 <!-- Adding -->
-<section>
-    <div class="container">
-        <header class="major"><a href="/modifierJeu" class="button fit small">Modifier le jeu</a></header>
+<!--<section>-->
+    <!--<div class="container">-->
+        <!--<header class="major"><a href="/modifierJeu" class="button fit small">Modifier le jeu</a></header>-->
 
 
-    </div>
-</section>
+    <!--</div>-->
+<!--</section>-->
+</div>
 
 
 <!-- Footer -->

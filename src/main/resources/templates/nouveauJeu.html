@@ -4,32 +4,38 @@
 <body>
 <header id="header" th:include="fragments :: header">...</header>
 
-<section id="main">
+<div class="mainContainer">
+<section id="main" class="paddingTop">
     <div class="container">
 
         <header class="major">
-            <h2>Nouveau Jeu</h2>
+            <h1>Nouveau jeu</h1>
         </header>
     </div>
 </section>
 
 <!-- Main -->
-<section  class="wrapper">
+<section  class="form">
     <div class="container">
-
-        <br>Saisissez un nouveau Jeux</br>
-
-        <form action="#" th:action="@{/jeu-create}" th:object="${Jeu}" method="post">
-            <table>
-                <tr>
-                    <td>Nom: <input type="text" th:field="*{libellejeu}" /></td>
-
-                </tr>
-            </table>
-            <button type="submit" class="button" id="createJeu">Enregistrer Jeu</button>
-        </form>
+        <div class="panel panel-default box-primary">
+            <div class="panel-heading">
+                <h2>Saisissez un nouveau jeu</h2>
+            </div>
+            <form action="#" th:action="@{/jeu-create}" th:object="${Jeu}" method="post">
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label for="libellejeu">Nom du jeu</label>
+                        <input type="text" class="form-control" th:field="*{libellejeu}" placeholder="Nom du jeu" required="required"/>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <button type="submit" class="btn btn-block btn-success btnCustom" id="createJeu">Enregistrer Jeu</button>
+                </div>
+            </form>
+        </div>
     </div>
 </section>
+</div>
 
 
 
