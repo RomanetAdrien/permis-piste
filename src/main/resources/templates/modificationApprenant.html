@@ -17,18 +17,45 @@
 <section  class="wrapper">
     <div class="container">
 
-        <br>Modifier le jeu</br>
+        <br><h3>Modifier l'apprenant</h3></br>
 
         <form action="#" th:action="@{/apprenant-modif}" th:object="${Apprenant}" method="post">
             <table>
                 <tr>
-                    <td>Nom: <input type="text" th:name="lastname" th:value="${apprenants.nomapprenant}"/></td>
-                    <td>Prénom: <input type="text" th:name="firstname" th:value="${apprenants.prenomapprenant}"/></td>
-                    <input display="none" th:name="id" th:value="${apprenants.numapprenant}"/>
+                    <td>Nom: <input type="text" th:name="lastname" th:value="${apprenant.nomapprenant}"/></td>
+                    <td>Prénom: <input type="text" th:name="firstname" th:value="${apprenant.prenomapprenant}"/></td>
                 </tr>
             </table>
             <button type="submit" class="button" id="modifApprenant">Enregistrer Apprenant</button>
         </form>
+
+            <div class="table-wrapper">
+                <h3>Jeu Inscrit</h3>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Id jeu</th>
+                        <th>libellé jeu</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="jeu : ${jeux}">
+                        <td th:text="${jeu.numjeu}"></td>
+                        <td th:text="${jeu.libellejeu}"></td>
+                        <td></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <h3>Inscrire à un jeu</h3>
+            <form th:action="@{/apprenant-inscription}" method="post">
+                <select name="jeuinscri">
+                    <option th:each="jeu : ${jeuxpossibles}" th:value="${jeu.numjeu}" th:text="${jeu.libellejeu}"></option>
+                </select>
+                <input type="hidden" name="id" th:value="${apprenant.numapprenant}"/>
+                <button type="submit" class="button" id="inscrireApprenantJeu">Inscrire au jeu</button>
+            </form>
     </div>
 </section>
 

@@ -8,4 +8,6 @@ import org.springframework.data.repository.CrudRepository;
 public interface InscriptionDAO   extends CrudRepository<Inscription, Long> {
 
     Iterable<Inscription> findByNumjeu(int numjeu);
+
+    Iterable<Inscription> findByNumapprenant(int numjeu);
 }

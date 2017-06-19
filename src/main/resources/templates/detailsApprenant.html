@@ -46,6 +46,25 @@
                     </tbody>
                 </table>
             </div>
+            <div class="table-wrapper">
+                <h3>Jeu Inscrit</h3>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Id jeu</th>
+                        <th>libellé jeu</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="jeu : ${jeux}">
+                        <td th:text="${jeu.numjeu}"></td>
+                        <td th:text="${jeu.libellejeu}"></td>
+                        <td></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
 
         </section>
 
