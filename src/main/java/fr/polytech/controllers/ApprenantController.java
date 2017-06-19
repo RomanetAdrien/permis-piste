@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.stream.Stream;
 
 /**
  * Created by theo
@@ -98,8 +99,21 @@ public class ApprenantController {
             Inscription inscri = new Inscription();
             inscri.setNumjeu(idJeu);
             inscri.setNumapprenant(id);
-            System.out.println("bite");
             inscriptionDAO.save(inscri);
+        }
+        catch (Exception ex) {
+            return "Error creating the user :" + ex.toString();
+        }
+
+        return "redirect:/apprenants-modifier?id="+id;
+    }
+
+    @RequestMapping(value="/apprenant-desinscription")
+    public String apprenantDeinscription(HttpServletRequest request, @RequestParam("id") int id, @RequestParam("jeuinscri") int idJeu , Model model){
+        try{
+            Inscription inscri = inscriptionDAO.findByNumjeuAndNumapprenant(idJeu, id);
+
+            inscriptionDAO.delete(inscri);
         }
         catch (Exception ex) {
             return "Error creating the user :" + ex.toString();

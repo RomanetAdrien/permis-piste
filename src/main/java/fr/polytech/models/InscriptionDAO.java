@@ -10,4 +10,6 @@ public interface InscriptionDAO   extends CrudRepository<Inscription, Long> {
     Iterable<Inscription> findByNumjeu(int numjeu);
 
     Iterable<Inscription> findByNumapprenant(int numjeu);
+
+    Inscription findByNumjeuAndNumapprenant(int numjeu, int numapprenant);
 }
