@@ -26,6 +26,7 @@
                     <td>Prénom: <input type="text" th:name="firstname" th:value="${apprenant.prenomapprenant}"/></td>
                 </tr>
             </table>
+            <input type="hidden" name="id" th:value="${apprenant.numapprenant}"/>
             <button type="submit" class="button" id="modifApprenant">Enregistrer Apprenant</button>
         </form>
 
