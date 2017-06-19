@@ -198,6 +198,62 @@ public class GameController {
         return "redirect:/jeux";
     }
 
+    @RequestMapping("/resultsjeu")
+    @ResponseBody
+    public ModelAndView resultsJeu(HttpServletRequest request, @RequestParam("idApprenant") int idApprenant, @RequestParam("idJeu") int idJeu) throws Exception  {
+        String destinationPage;
+        try {
+            Jeu jeu = jeuDao.findBynumjeu(idJeu);
+            Apprenant apprenant = apprenantDao.findBynumapprenant(idApprenant);
+            List<Action> actionsNotDone = new ArrayList<>();
+            Iterable<Appartient> appartients = appartientDao.findBynumjeu(idJeu);
+            appartients.forEach(a -> {
+                actionsNotDone.add(actionDao.findBynumaction(a.getNumaction()));
+            });
+            List<Obtient> obtients  = new ArrayList<>();
+            obtientDao.findBynumapprenant(idApprenant).forEach(o -> {
+                if(actionsNotDone.contains(o.getActionByNumaction())){
+                    obtients.add(o);
+                    actionsNotDone.remove(o.getActionByNumaction());
+                }
+            });
+            System.out.println("BITE" + obtients);
+            request.setAttribute("actionsNotDone", actionsNotDone);
+            request.setAttribute("obtients", obtients);
+            request.setAttribute("apprenant", apprenant);
+            request.setAttribute("jeu", jeu);
+
+            destinationPage = "resultsJeu";
+        } catch (Exception e) {
+            request.setAttribute("error", "500 Internal Error");
+            request.setAttribute("message", e.getMessage());
+            destinationPage = "error";
+        }
+        return new ModelAndView(destinationPage);
+    }
+
+    @RequestMapping("/test-jeu")
+    public String delete(HttpServletRequest request, @RequestParam("idApprenant")int idApprenant, @RequestParam("idAction") int idAction, @RequestParam("idJeu") int idJeu) {
+        try {
+            Apprenant apprenant = apprenantDao.findBynumapprenant(idApprenant);
+            Action action = actionDao.findBynumaction(idAction);
+            Obtient obtient = new Obtient();
+            obtient.setApprenantByNumapprenant(apprenant);
+            obtient.setNumapprenant(apprenant.getNumapprenant());
+            obtient.setActionByNumaction(action);
+            obtient.setNumaction(action.getNumaction());
+            obtient.setValeur((int)(Math.random()*21));
+
+            obtientDao.save(obtient);
+        }
+        catch (Exception ex) {
+            return ex.toString();
+
+        }
+        return "redirect:/resultsjeu?idApprenant="+idApprenant+"&idJeu="+idJeu;
+    }
+
+
 
 
 
@@ -217,6 +273,10 @@ public class GameController {
     private FixeDAO fixeDAO;
     @Autowired
     private InscriptionDAO inscriptionDAO;
+    @Autowired
+    private ApprenantDao apprenantDao;
+    @Autowired
+    private ObtientDao obtientDao;
 
 }
 

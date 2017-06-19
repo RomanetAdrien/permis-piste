@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+    <html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head th:include="fragments :: head">...</head>
+<body>
+<header id="header" th:include="fragments :: header">...</header>
+
+<div class="mainContainer">
+    <section id="main" class="paddingTop">
+        <div class="container">
+
+            <header class="major">
+                <h2>Résultats de l'apprenant : <span th:text="${apprenant.nomapprenant}">NOM</span>  <span th:text="${apprenant.prenomapprenant}">PRENOM</span></h2>
+                <h2>Pour le jeu <span th:text="${jeu.libellejeu}"></span></h2>
+            </header>
+        </div>
+    </section>
+<!-- Table -->
+<section class="list">
+    <div class="container">
+        <section>
+            <div class="table-wrapper box box-primary">
+                <h3>Actions</h3>
+                <table id="results" class="table table-hover customTable">
+                    <thead>
+                    <tr>
+                        <th>numero Action</th>
+                        <th>nom de l'action</th>
+                        <th>Score reçu</th>
+                        <th>score min</th>
+                        <th>résultats</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="obtient : ${obtients}">
+                        <td th:text="${obtient.numaction}"></td>
+                        <td th:text="${obtient.actionByNumaction.libaction}"></td>
+                        <td th:text="${obtient.valeur}"></td>
+                        <td th:text="${obtient.actionByNumaction.scoremin}"></td>
+                        <td th:if="${obtient.valeur >= obtient.actionByNumaction.scoremin}">
+                            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                        </td>
+                        <td th:unless="${obtient.valeur >= obtient.actionByNumaction.scoremin}">
+                            <i style="color:red" class="fa fa-times fa-lg" aria-hidden="true"></i>
+                        </td>
+                    </tr>
+                    <tr th:each="action : ${actionsNotDone}">
+                        <td th:text="${action.numaction}"></td>
+                        <td th:text="${action.libaction}"></td>
+                        <td>TBD</td>
+                        <td>TBD</td>
+                        <td><a th:href="@{/test-jeu(idApprenant=${apprenant.numapprenant}, idAction=${action.numaction}, idJeu=${jeu.numjeu})}">
+                            <button type="button" class="btn btn-primary">Faire passer test</button>
+                            </a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </section>
+
+    </div>
+
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#results').dataTable( {
+                "order": [[0, "asc"],
+                "autoWidth": false,
+                fixedHeader: true
+            });
+        });
+    </script>
+</section>
+</div>
+</body>
+</html>
