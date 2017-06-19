@@ -38,10 +38,10 @@
                         <td th:text="${obtient.valeur}"></td>
                         <td th:text="${obtient.actionByNumaction.scoremin}"></td>
                         <td th:if="${obtient.valeur >= obtient.actionByNumaction.scoremin}">
-                            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                            <i class="fa fa-check fa-lg" aria-hidden="true"></i>
                         </td>
                         <td th:unless="${obtient.valeur >= obtient.actionByNumaction.scoremin}">
-                            <i style="color:red" class="fa fa-times fa-lg" aria-hidden="true"></i>
+                            <i class="fa fa-times fa-lg" aria-hidden="true"></i>
                         </td>
                     </tr>
                     <tr th:each="action : ${actionsNotDone}">
@@ -74,5 +74,7 @@
     </script>
 </section>
 </div>
+<!-- Footer -->
+<footer id="footer" th:include="fragments :: footer">...</footer>
 </body>
 </html>
