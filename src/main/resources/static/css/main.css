@@ -251,6 +251,14 @@ table tr td, th {
   display: none;
 }
 
+.fa-times {
+  color: red;
+}
+
+.fa-check {
+  color: green;
+}
+
 /* Image */
 .image {
   border-radius: 4px;
@@ -328,9 +336,6 @@ table tr td, th {
 .form h2 {
   text-align: left;
   font-weight: bold;
-}
-.form .fa-times {
-  color: red;
 }
 
 /*# sourceMappingURL=main.css.map */
