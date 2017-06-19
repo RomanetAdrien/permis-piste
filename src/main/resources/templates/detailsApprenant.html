@@ -62,7 +62,7 @@
                     <tr th:each="jeu : ${jeux}">
                         <td th:text="${jeu.numjeu}"></td>
                         <td th:text="${jeu.libellejeu}"></td>
-                        <td><a th:href="@{/resultsjeu(idApprenant=${apprenants.numapprenant}, idJeu=${jeu.numjeu})}">
+                        <td><a th:href="@{/resultsjeu(idApprenant=${apprenant.numapprenant}, idJeu=${jeu.numjeu})}">
                             <button type="button" class="btn btn-primary">Récapitulatif du jeu</button>
                         </a></td>
                     </tr>
