@@ -27,6 +27,9 @@
                 </tr>
                 </thead>
                 <tbody>
+                <tr th:if="${#lists.isEmpty(actions)}">
+                    <td>Ce jeu ne comprend aucune action pour le moment</td>
+                </tr>
                 <tr th:each="action : ${actions}">
                     <td th:text="${action.numaction}"></td>
                     <td th:text="${action.libaction}"></td>
