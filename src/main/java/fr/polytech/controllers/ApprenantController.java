@@ -50,7 +50,7 @@ public class ApprenantController {
         int idInt= Integer.parseInt(id);
         Apprenant apprenant = apprenantDao.findBynumapprenant(idInt);
         System.out.println(apprenant);
-        model.addAttribute("apprenants",apprenant);
+        model.addAttribute("apprenant",apprenant);
         model.addAttribute("scores", apprenant.getObtientsByNumapprenant());
         System.out.println(apprenant.getObtientsByNumapprenant());
         return "detailsApprenant";

@@ -4,34 +4,60 @@
 <body>
 <header id="header" th:include="fragments :: header">...</header>
 
-<section id="main">
+<div class="mainContainer">
+<section id="main" class="paddingTop">
     <div class="container">
 
         <header class="major">
-            <h2>Ajout Point</h2>
+            <h1>Ajout Point</h1>
         </header>
     </div>
 </section>
 
 <!-- Main -->
-<section  class="wrapper">
+<section  class="form">
     <div class="container">
+        <div class="panel panel-default box-primary">
+            <div class="panel-heading">
+                <h2>Saisissez l'action et les point à attribuer</h2>
+            </div>
+            <form action="nouvelApprenant.php" method="post">
+                <div class="panel-body">
+                    <div class="form-group col-md-6">
+                        <label for="action">Action</label>
+                        <input type="text" class="form-control" name="action" id ="action" placeholder="Action" required="required" label="action"/>
+                        <!--<td>Action: <input type="text" label="action"/></td>-->
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="point">Points</label>
+                        <input type="number" class="form-control" name="point" id ="point" placeholder="Point" required="required" label="Point"/>
+                        <!--<td>Point: <input type="text" label="Point"/></td>-->
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <button type="submit" class="btn btn-block btn-success btnCustom" id="addActionPoint">Enregistrer Point</button>
+                </div>
+            </form>
+        </div>
 
-        <br>Saisissez l'action et les point à attribuer</br>
-        <form action="nouvelApprenant.php" method="post">
-            <table>
-                <tr>
 
-                    <td>Action: <input type="text" label="action"/></td>
-                    <td>Point: <input type="text" label="Point"/></td>
+        <!--<div class="box box-primary">-->
+            <!--<p>Saisissez l'action et les point à attribuer</p>-->
+            <!--<form action="nouvelApprenant.php" method="post">-->
+                <!--<table>-->
+                    <!--<tr>-->
 
-                </tr>
-            </table>
-            <button type="submit" class="button" id="addActionPoint">Enregistrer Point</button>
-        </form>
+                        <!--<td>Action: <input type="text" label="action"/></td>-->
+                        <!--<td>Point: <input type="text" label="Point"/></td>-->
+
+                    <!--</tr>-->
+                <!--</table>-->
+                <!--<button type="submit" class="button" id="addActionPoint">Enregistrer Point</button>-->
+            <!--</form>-->
+        <!--</div>-->
     </div>
 </section>
-
+</div>
 
 
 
