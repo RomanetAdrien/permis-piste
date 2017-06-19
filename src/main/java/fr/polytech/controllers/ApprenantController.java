@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -49,8 +50,14 @@ public class ApprenantController {
     public String detail(@RequestParam(value = "id") String id, Model model) {
         int idInt= Integer.parseInt(id);
         Apprenant apprenant = apprenantDao.findBynumapprenant(idInt);
+        Iterable<Inscription>  inscr = inscriptionDAO.findByNumapprenant(idInt);
+        List<Jeu> jeuInscr = new ArrayList<>();
+        inscr.forEach(i -> {
+            jeuInscr.add(jeuDao.findBynumjeu(i.getNumjeu()));
+        });
         System.out.println(apprenant);
         model.addAttribute("apprenant",apprenant);
+        model.addAttribute("jeux", jeuInscr);
         model.addAttribute("scores", apprenant.getObtientsByNumapprenant());
         System.out.println(apprenant.getObtientsByNumapprenant());
         return "detailsApprenant";
@@ -84,13 +91,37 @@ public class ApprenantController {
 
         return "redirect:/apprenants";
     }
+
+    @RequestMapping(value="/apprenant-inscription", method = RequestMethod.POST)
+    public String apprenantInscription(HttpServletRequest request, @RequestParam("id") int id, @RequestParam("jeuinscri") int idJeu , Model model){
+        try{
+            Inscription inscri = new Inscription();
+            inscri.setNumjeu(idJeu);
+            inscri.setNumapprenant(id);
+            System.out.println("bite");
+            inscriptionDAO.save(inscri);
+        }
+        catch (Exception ex) {
+            return "Error creating the user :" + ex.toString();
+        }
+
+        return "redirect:/apprenants-modifier?id="+id;
+    }
+
     @RequestMapping("/apprenants-modifier")
     public ModelAndView modifApprenant(HttpServletRequest request, @RequestParam("id") int id, Model model) throws Exception  {
         String destinationPage;
         try {
             Apprenant appre = new Apprenant();
+            Iterable<Inscription>  inscr = inscriptionDAO.findByNumapprenant(id);
+            List<Jeu> jeuInscr = new ArrayList<>();
+            inscr.forEach(i -> {
+                jeuInscr.add(jeuDao.findBynumjeu(i.getNumjeu()));
+            });
             model.addAttribute("Apprenant", appre);
-            request.setAttribute("apprenants", apprenantDao.findBynumapprenant(id));
+            request.setAttribute("apprenant", apprenantDao.findBynumapprenant(id));
+            request.setAttribute("jeux", jeuInscr);
+            request.setAttribute("jeuxpossibles", jeuDao.findAll());
             destinationPage = "modificationApprenant";
         } catch (Exception e) {
             request.setAttribute("error", "500 Internal Error");
@@ -125,5 +156,9 @@ public class ApprenantController {
     private ObtientDao obtientDao;
     @Autowired
     private ActionDao actionDao;
+    @Autowired
+    private InscriptionDAO inscriptionDAO;
+    @Autowired
+    private JeuDao jeuDao;
 
 }
