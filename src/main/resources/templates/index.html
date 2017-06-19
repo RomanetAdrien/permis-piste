@@ -81,4 +81,20 @@
 
 		<footer id="footer" th:include="fragments :: footer">...</footer>
 	</body>
+	<script type="text/javascript">
+        $(document).ready(function() {
+            var $navbar = $('.navbar');
+            var $nacbarTXT = $('.navbar-inverse .navbar-brand, .navbar-inverse .navbar-nav>li>a');
+            $navbar.css("background-color","transparent");
+            $navbar.css("border-color","transparent");
+            $navbar.css("position","absolute");
+            $nacbarTXT.css("color","black");
+            $nacbarTXT.mouseenter( function(){
+                $(this).css("color","darkgray");
+            });
+            $nacbarTXT.mouseleave( function(){
+                $(this).css("color","black");
+            });
+        });
+	</script>
 </html>
